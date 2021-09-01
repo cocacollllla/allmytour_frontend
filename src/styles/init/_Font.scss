@@ -1,93 +1,93 @@
 @mixin boldH1 {
-    font-family: 'SpoqaHanSansNeoBold';
-    font-size: 24px;
-    line-height: 160%;
-  }
-  @mixin boldbigP {
-    font-family: 'SpoqaHanSansNeoBold';
-    font-size: 18px;
-    line-height: 155%;
-  }
-  @mixin boldP {
-    font-family: 'SpoqaHanSansNeoBold';
-    font-size: 16px;
-    line-height: 150%;
-  }
-  @mixin boldCaption {
-    font-family: 'SpoqaHanSansNeoBold';
-    font-size: 14px;
-    line-height: 150%;
-  }
-  
-  @mixin MediumbigP {
-    font-family: 'SpoqaHanSansNeoMedium';
-    font-size: 18px;
-    line-height: 160%;
-  }
-  @mixin MediumP {
-    font-family: 'SpoqaHanSansNeoMedium';
-    font-size: 16px;
-    line-height: 160%;
-  }
-  @mixin MediumsmallP {
-    font-family: 'SpoqaHanSansNeoMedium';
-    font-size: 14px;
-    line-height: 160%;
-  }
-  @mixin MediumCaption {
-    font-family: 'SpoqaHanSansNeoMedium';
-    font-size: 12px;
-    line-height: 160%;
-  }
-  
-  @mixin RegularbigP {
-    font-family: 'SpoqaHanSansNeoRegular';
-    font-size: 18px;
-    line-height: 155%;
-  }
-  @mixin RegularP {
-    font-family: 'SpoqaHanSansNeoRegular';
-    font-size: 16px;
-    line-height: 160%;
-  }
-  @mixin RegularProductName {
-    font-family: 'SpoqaHanSansNeoRegular';
-    font-size: 16px;
-    line-height: 135%;
-  }
-  @mixin RegularsmallP {
-    font-family: 'SpoqaHanSansNeoRegular';
-    font-size: 14px;
-    line-height: 160%;
-  }
-  @mixin RegularCaption {
-    font-family: 'SpoqaHanSansNeoRegular';
-    font-size: 12px;
-    line-height: 160%;
-  }
+  font-family: 'SpoqaHanSansNeoBold';
+  font-size: 24px;
+  line-height: 160%;
+}
+@mixin boldbigP {
+  font-family: 'SpoqaHanSansNeoBold';
+  font-size: 18px;
+  line-height: 155%;
+}
+@mixin boldP {
+  font-family: 'SpoqaHanSansNeoBold';
+  font-size: 16px;
+  line-height: 150%;
+}
+@mixin boldCaption {
+  font-family: 'SpoqaHanSansNeoBold';
+  font-size: 14px;
+  line-height: 150%;
+}
 
-  @font-face {
-    font-family: 'SpoqaHanSansNeoBold';
-    src: url('../../fonts/SpoqaHanSansNeo_TTF_original/SpoqaHanSansNeo-Bold.ttf')
-      format('truetype');
-  }
-  @font-face {
-    font-family: 'SpoqaHanSansNeoMedium';
-    src: url('../../fonts/SpoqaHanSansNeo_TTF_original/SpoqaHanSansNeo-Medium.ttf')
-      format('truetype');
-  }
-  @font-face {
-    font-family: 'SpoqaHanSansNeoRegular';
-    src: url('../../fonts/SpoqaHanSansNeo_TTF_original/SpoqaHanSansNeo-Regular.ttf')
-      format('truetype');
-  }
-  @font-face {
-    font-family: 'SpoqaHanSansNeoLight';
-    src: url('../../fonts/SpoqaHanSansNeo_TTF_original/SpoqaHanSansNeo-Light.ttf')
-      format('truetype');
-  }
-  @font-face {
-    font-family: 'SpoqaHanSansNeoThin';
-    src: url('../../fonts/SpoqaHanSansNeo_TTF_original/SpoqaHanSansNeo-Thin.ttf')
-      format('truetype');
-  }
+@mixin MediumbigP {
+  font-family: 'SpoqaHanSansNeoMedium';
+  font-size: 18px;
+  line-height: 160%;
+}
+@mixin MediumP {
+  font-family: 'SpoqaHanSansNeoMedium';
+  font-size: 16px;
+  line-height: 160%;
+}
+@mixin MediumsmallP {
+  font-family: 'SpoqaHanSansNeoMedium';
+  font-size: 14px;
+  line-height: 160%;
+}
+@mixin MediumCaption {
+  font-family: 'SpoqaHanSansNeoMedium';
+  font-size: 12px;
+  line-height: 160%;
+}
+
+@mixin RegularbigP {
+  font-family: 'SpoqaHanSansNeoRegular';
+  font-size: 18px;
+  line-height: 155%;
+}
+@mixin RegularP {
+  font-family: 'SpoqaHanSansNeoRegular';
+  font-size: 16px;
+  line-height: 160%;
+}
+@mixin RegularProductName {
+  font-family: 'SpoqaHanSansNeoRegular';
+  font-size: 16px;
+  line-height: 135%;
+}
+@mixin RegularsmallP {
+  font-family: 'SpoqaHanSansNeoRegular';
+  font-size: 14px;
+  line-height: 160%;
+}
+@mixin RegularCaption {
+  font-family: 'SpoqaHanSansNeoRegular';
+  font-size: 12px;
+  line-height: 160%;
+}
+
+@font-face {
+  font-family: 'SpoqaHanSansNeoBold';
+  src: url('../../fonts/SpoqaHanSansNeo_TTF_original/SpoqaHanSansNeo-Bold.ttf')
+    format('truetype');
+}
+@font-face {
+  font-family: 'SpoqaHanSansNeoMedium';
+  src: url('../../fonts/SpoqaHanSansNeo_TTF_original/SpoqaHanSansNeo-Medium.ttf')
+    format('truetype');
+}
+@font-face {
+  font-family: 'SpoqaHanSansNeoRegular';
+  src: url('../../fonts/SpoqaHanSansNeo_TTF_original/SpoqaHanSansNeo-Regular.ttf')
+    format('truetype');
+}
+@font-face {
+  font-family: 'SpoqaHanSansNeoLight';
+  src: url('../../fonts/SpoqaHanSansNeo_TTF_original/SpoqaHanSansNeo-Light.ttf')
+    format('truetype');
+}
+@font-face {
+  font-family: 'SpoqaHanSansNeoThin';
+  src: url('../../fonts/SpoqaHanSansNeo_TTF_original/SpoqaHanSansNeo-Thin.ttf')
+    format('truetype');
+}
