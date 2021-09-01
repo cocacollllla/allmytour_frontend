@@ -6,3 +6,7 @@
     width: $width;
     height: $height;
   }
+
+  @mixin wrap_mob {
+    padding: 0 5%;
+  }
