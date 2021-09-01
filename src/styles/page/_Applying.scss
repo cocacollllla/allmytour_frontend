@@ -11,33 +11,40 @@
     width:1440px;
    
    .application_tabs{
+       margin-top: 106.5px;
+       margin-bottom:10.6px;
+    background-color: red;
+
        img{
            
+           margin-left:19px;
+
        }
        .applying_makers{
+        @include RegularP();
            display: inline-block;
-           @include RegularP();
+        //    padding-bottom: 3.4px;
+           letter-spacing:$ls_64;
+           color:$system-black;
        }
        .temporary_save{
            @include RegularP();
            @include Oval_button();
-        //    margin-left: 376.3px;
+           margin-left: 376.3px;
            width:264.3px;
-  
-        //    border-radius: 100px;
-        //    border: none;
-        //    background-color:$Grayscale-darker;
-        //    color: $system-white;
+           background-color:$Grayscale-darker;
+           letter-spacing:$ls_8;
        }
        .submission{
            @include RegularP();
-           margin-left:8px;
+           margin-left:14.6px;
            width:264.3px;
            height:54px;
            border-radius: 100px;
            border: none;
            background-color:$primary-primary;
            color: $system-white;
+           letter-spacing: $ls_8;
    
        }
    
@@ -53,37 +60,131 @@
            padding-top: 0;
            padding-right: 400px;
            color:$system-black;
+           letter-spacing:$ls_64;
    
-           span{
-               font-size: 16px;
-               color: rgb(235, 87, 87);
+           .ico {
+            @include ico();
            }
        }
        .maker_name_input{
-           @include size (543.7px, 54px);
+        @include RegularP();
+        @include size (543.7px, 54px);
          @include input_inner();
-     
-           
+         letter-spacing: $ls_8;
            // ::placeholder{
            //     @include RegularP();
            //     color:$system-black;
            // }
-           
-           
-   
        }
    }
    .maker_nickname_wrap{
        .maker_nickname{
-           // display: inline-block;
+        @include RegularP();
+           display: inline-block;
            margin-top: 92px;
            margin-right: 389.3px;
+           letter-spacing: $ls_8;
+           color:$system-black;
+           .ico {
+            @include ico();
+           }
        }
        .maker_nickname_input{
-           margin-top: 64px;
+        @include RegularP();
+        @include size (543.7px, 54px);
+        @include input_inner();
+        margin-top: 64px;
+        letter-spacing: $ls_8;
+           
+            // :placeholder{
+            //    @include RegularP();
+            //     color:$system-black;
+            // }
        }
    }
    
+   .profile_image_wrap{
+    @include size (initial, 155.2px);
+       display: flex;
+       margin-top: 92px;
+       .category_profile_image{
+        margin-right:176.3px;
+           .profile_image{
+            @include size (initial, 26px);
+            @include RegularP();
+            letter-spacing: $ls_8;
+            color:$system-black;
+            .ico {
+                @include ico();
+               }
+           }
+           .image_desc{
+            @include RegularCaption();
+            width:310px;
+            color:$Grayscale-dark;
+            font-size: 12px;
+            letter-spacing: $ls_36;
+
+           }
+       }
+       
+       .preview_image{
+        @include size (157.3px, 155.2px);
+        position: relative;
+        border-radius:131px;
+        border: 1px solid rgb(213, 223, 217);
+           .camera_image{
+               position: absolute;
+               left:58.4px;
+               bottom:58.7px;
+          }
+       }
+       .uploading_image{
+           padding-left:19.2px;
+           .image_uploading_bttn{
+            @include size (367px, 54px);
+            border: 1px solid transparent;
+            border-radius: 10px;
+            color:$primary-primary;
+           }
+           .image_des_1{
+            @include RegularCaption();
+            padding-top: 16px;
+            color: $Grayscale-darker;
+            &:before{
+                padding-right: 6px;
+                content: '∙';
+            }
+
+           }
+           .image_des_2{
+            @include RegularCaption();
+            color: $Grayscale-darker;
+            &:before{
+                padding-right: 6px;
+                content: '∙';
+            }
+           }
+       }
+   }
+
+   .maker_profile{
+       margin-bottom: 64px;
+        .introduction{
+            display: inline-block;
+            .ico{
+                @include ico();
+            }
+        }
+        .career_textarea{
+            @include RegularP();
+            @include size (544px, 150px);
+            @include input_inner();
+            margin-left: 388.9px;
+        }
+
+   }
+
    }
    
    }

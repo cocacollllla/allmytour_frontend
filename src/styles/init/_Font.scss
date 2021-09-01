@@ -66,6 +66,13 @@
     line-height: 160%;
   }
 
+  @mixin ico{
+      @include  RegularProductName();
+      color: rgb(235, 87, 87);
+      letter-spacing: $ls_8;
+  }
+  
+
   @font-face {
     font-family: 'SpoqaHanSansNeoBold';
     src: url('../../fonts/SpoqaHanSansNeo_TTF_original/SpoqaHanSansNeo-Bold.ttf')
@@ -91,3 +98,4 @@
     src: url('../../fonts/SpoqaHanSansNeo_TTF_original/SpoqaHanSansNeo-Thin.ttf')
       format('truetype');
   }
+  
