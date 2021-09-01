@@ -1,0 +1,8 @@
+@mixin MainSize {
+    padding: 271.1px 170.3px 0 241px;
+  }
+  
+  @mixin size ($width, $height){
+    width: $width;
+    height: $height;
+  }
