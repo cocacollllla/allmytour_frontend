@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/page/Applying.scss';
+import '../../styles/styles.scss';
 import './Aside/Certificate.js';
 import Certificate from './Aside/Certificate.js';
 import ArrowBack from '../../assets/arrow_back.svg';

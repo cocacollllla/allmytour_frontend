@@ -1,0 +1,17 @@
+@import '../init/Color.scss';
+
+@mixin Oval_button{
+
+    padding:13px 0;
+    border-radius:100px;
+    border: none;
+    color:$system-white;
+}
+
+
+@mixin Rect_button{
+    padding: 14px 0;
+    border: none;
+    border-radius: 10px;
+    color: $system-white;
+}
