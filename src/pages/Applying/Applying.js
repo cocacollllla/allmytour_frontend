@@ -5,6 +5,8 @@ import Certificate from './Aside/Certificate.js';
 import ArrowBack from '../../assets/arrow_back.svg';
 import Camera from '../../assets/camera.svg';
 import Question from '../../assets/question.svg';
+import Dot from '../../assets/dot.svg';
+import { INPUT_DATA } from './Aside/INPUT_DATA';
 
 const Applying = () => {
   return (
@@ -61,9 +63,23 @@ const Applying = () => {
           <div className="uploading_image">
             <button className="image_uploading_bttn">이미지파일 업로드</button>
             <div className="image_des_1">
+              <img
+                className="dot_image"
+                src={Dot}
+                alt="dots"
+                height="24"
+                width="24"
+              />
               240px*240px 이미지를 업로드 해주세요
             </div>
             <div className="image_des_2">
+              <img
+                className="dot_image"
+                src={Dot}
+                alt="dots"
+                height="24"
+                width="24"
+              />
               JPG, JPEG, PNG, PDF/100KB 이하 파일 1개만 업로드 가능합니다.
             </div>
           </div>
@@ -81,17 +97,56 @@ const Applying = () => {
           {/* 0/200 부분 넣어야함 */}
         </div>
 
-        <div className="attaching_certificate">
-          <div>
-            <div>증빙서류</div>
-            <span>중복선택가능</span>
-            <img src={Question} alt="question mark" width="24" height="24" />
-            <div>
-              가이드로서의 활동을 알 수 있는 홈페이지, sns등 주소가 있다면
-              입력해주세요
+        <div className="certificate_wrap">
+          <div className="attaching_certificate">
+            <div className="documents_title">증빙서류</div>
+            <span className="certificate_des_1">
+              중복선택가능 <span className="ico">*</span>
+            </span>
+            <img
+              className="question_mark"
+              src={Question}
+              alt="question mark"
+              width="24"
+              height="24"
+            />
+            <div className="certificate_des_2">
+              영역에 대한 전문성을 입증할 수 있는 서류를 등록해주세요
             </div>
           </div>
           <Certificate />
+        </div>
+
+        <div className="user_sns_wrap">
+          <div className="category_hp_or_sns">
+            <div className="title_sns">
+              홈페이지 또는 SNS<span className="ico">*</span>
+            </div>
+            <div className="sns_desc">
+              가이드로서의 활동을 알 수 있는 홈페이지, sns 등 주소가 있다면
+              입력해주세요
+            </div>
+          </div>
+          <div className="sns_inputs">
+            <label className="ig_label" ig-domain="https://wwww.instagram.com/">
+              <input className="instagram_input"></input>
+            </label>
+            <label className="fb_label" ig-domain="https://wwww.facebook.com/">
+              <input className="facebook_input"></input>
+            </label>
+            <label className="yt_label" ig-domain="https://wwww.youtube.com/">
+              <input className="youtube_input"></input>
+            </label>
+          </div>
+        </div>
+
+        {/* 사용 가능한 언어 */}
+        <div className="capable_language_wrap">
+          <div className="documents_title">증빙서류</div>
+          <span className="certificate_des_1">
+            중복선택가능 <span className="ico">*</span>
+          </span>
+          {/* <Language /> */}
         </div>
       </main>
     </div>

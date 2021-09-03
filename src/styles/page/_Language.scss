@@ -6,15 +6,3 @@
 @import '../../styles/init/_Measures.scss';
 @import '../../styles/components/_Input.scss';
 @import '../../styles/components/_Button.scss';
-
-
-.css-2b097c-container{
-    @include size (543.7px, 54px);
-    #react-select-3-input{
-        caret-color: transparent;
-    }
-    .css-1okebmr-indicatorSeparator{
-        display: none;
-    }
-    
-}

@@ -1,49 +1,44 @@
-@import '../../styles/init/Common.scss';
-@import '../../styles/init/Mixin.scss';
-@import '../../styles/init/Reset.scss';
-@import '../../styles/init/Color.scss';
-@import '../../styles/init/Font.scss';
-@import '../../styles/init/Measures.scss';
-@import '../../styles/components/Input.scss';
-@import '../../styles/components/Button.scss';
+@import '../../styles/init/_Common.scss';
+@import '../../styles/init/_Mixin.scss';
+@import '../../styles/init/_Reset.scss';
+@import '../../styles/init/_Color.scss';
+@import '../../styles/init/_Font.scss';
+@import '../../styles/init/_Measures.scss';
+@import '../../styles/components/_Input.scss';
+@import '../../styles/components/_Button.scss';
 
 .applying_page_whole_wrap{
     width:1440px;
    
    .application_tabs{
-       margin-top: 106.5px;
-       margin-bottom:10.6px;
-    background-color: red;
+       @include padding(0, 170.5px, 0, 170px);
+       @include margin(106.5px, 0, 10.6px,0);      
 
        img{
-           
-           margin-left:19px;
-
+        @include margin(111.5px, 0, 0, 0.19px);     
        }
        .applying_makers{
         @include RegularP();
+        @include letter($ls_64,$system-black);
            display: inline-block;
-        //    padding-bottom: 3.4px;
-           letter-spacing:$ls_64;
-           color:$system-black;
+        
        }
        .temporary_save{
            @include RegularP();
            @include Oval_button();
-           margin-left: 376.3px;
+           @include margin( 0,0,0,376.3px);  
            width:264.3px;
            background-color:$Grayscale-darker;
-           letter-spacing:$ls_8;
+           letter-spacing: $ls_8;
        }
        .submission{
            @include RegularP();
+           @include Oval_button();
+           @include size (264.3px, 54px);
            margin-left:14.6px;
-           width:264.3px;
-           height:54px;
+           background-color:$primary-primary;
            border-radius: 100px;
            border: none;
-           background-color:$primary-primary;
-           color: $system-white;
            letter-spacing: $ls_8;
    
        }
@@ -56,12 +51,9 @@
    
        .maker_name{
            @include RegularP();
+           @include padding(0, 400px, 0, 0);
+           @include letter($ls_64, $system-black);
            display: inline-block;
-           padding-top: 0;
-           padding-right: 400px;
-           color:$system-black;
-           letter-spacing:$ls_64;
-   
            .ico {
             @include ico();
            }
@@ -70,21 +62,15 @@
         @include RegularP();
         @include size (543.7px, 54px);
          @include input_inner();
-         letter-spacing: $ls_8;
-           // ::placeholder{
-           //     @include RegularP();
-           //     color:$system-black;
-           // }
+         @include letter($ls_8,$Grayscale-middle);
        }
    }
    .maker_nickname_wrap{
        .maker_nickname{
         @include RegularP();
+        @include margin(92px, 389.3px,0,0);
+        @include letter($ls_8, $system-black);
            display: inline-block;
-           margin-top: 92px;
-           margin-right: 389.3px;
-           letter-spacing: $ls_8;
-           color:$system-black;
            .ico {
             @include ico();
            }
@@ -93,38 +79,30 @@
         @include RegularP();
         @include size (543.7px, 54px);
         @include input_inner();
+        @include letter($ls_8,$Grayscale-middle);
         margin-top: 64px;
-        letter-spacing: $ls_8;
-           
-            // :placeholder{
-            //    @include RegularP();
-            //     color:$system-black;
-            // }
        }
    }
    
    .profile_image_wrap{
     @include size (initial, 155.2px);
+    @include margin(92px, 0,64px,0);
        display: flex;
-       margin-top: 92px;
        .category_profile_image{
         margin-right:176.3px;
            .profile_image{
             @include size (initial, 26px);
+            @include letter($ls_8, $system-black);
             @include RegularP();
-            letter-spacing: $ls_8;
-            color:$system-black;
             .ico {
                 @include ico();
                }
            }
            .image_desc{
             @include RegularCaption();
+            @include letter($ls_36, $Grayscale-dark);
             width:310px;
-            color:$Grayscale-dark;
             font-size: 12px;
-            letter-spacing: $ls_36;
-
            }
        }
        
@@ -149,30 +127,28 @@
            }
            .image_des_1{
             @include RegularCaption();
-            padding-top: 16px;
-            color: $Grayscale-darker;
-            &:before{
-                padding-right: 6px;
-                content: '∙';
-            }
-
+            @include letter($ls_36, $Grayscale-dark);
+            display: flex;
+            margin-top: 16px;
+            padding:0;
            }
            .image_des_2{
             @include RegularCaption();
+            display: flex;
             color: $Grayscale-darker;
-            &:before{
-                padding-right: 6px;
-                content: '∙';
-            }
            }
        }
    }
 
    .maker_profile{
+       display: flex;
        margin-bottom: 64px;
-        .introduction{
-            display: inline-block;
-            .ico{
+       height: 150px;
+     .introduction{
+        @include RegularP();
+        @include letter($ls_8,$system-black);
+        padding-top: 0;
+         .ico{
                 @include ico();
             }
         }
@@ -180,11 +156,130 @@
             @include RegularP();
             @include size (544px, 150px);
             @include input_inner();
-            margin-left: 388.9px;
+            @include margin(0, 0, 0, 402.9px); 
+            @include letter($ls_8,$Grayscale-middle);
         }
+    }
+
+    .certificate_wrap{
+        @include size (initial, 155.2px);
+        display: flex;
+        .attaching_certificate{
+
+            .documents_title{
+                @include size (initial, 26px);
+                @include letter($ls_8, $system-black);
+                @include RegularP();
+                display: inline-block;
+                padding-right: 3px;}
+            .certificate_des_1{
+                @include RegularCaption();
+                @include letter($ls_36, $Grayscale-dark);
+                width:310px;
+
+                .ico{
+                    @include ico();
+                }
+            }
+            .question_mark{
+                position:absolute;
+            }
+            .certificate_des_2{
+                @include RegularCaption();
+                @include letter($ls_36, $Grayscale-dark);
+                width:273px;
+                margin-right:212.3px;
+            }
+
+
+        }
+    }
+    .user_sns_wrap{
+        display: flex;
+        .category_hp_or_sns{
+           
+        }
+        .title_sns{
+            
+         @include RegularP();
+            .ico {
+             @include ico();
+            }
+        }
+        .sns_desc{  
+            @include RegularCaption();
+            @include letter($ls_36, $Grayscale-dark);
+            margin-right: 119.3px;    
+        }
+        .sns_inputs{
+             display: flex;
+            flex-direction: column;
+        
+            .instagram_input{
+                @include input_inner();
+                @include RegularP();
+                @include size (543.7px, 54px);
+                @include letter($ls_8,$Grayscale-middle);
+                position: relative;
+                margin-bottom: 8px;
+            }
+            .ig_label::before{
+                @include RegularP();
+                @include letter($ls_8,$Grayscale-middle);
+                margin-left: 18px;
+                margin-top: 14px;
+                content: attr(ig-domain);
+                position: absolute;
+                z-index: 1;
+ 
+            }
+            .facebook_input{
+                @include input_inner();
+                @include RegularP();
+                @include size (543.7px, 54px);
+                @include letter($ls_8,$Grayscale-middle);
+                position: relative;
+                margin-bottom: 8px;
+            }
+            .fb_label::before{
+                @include RegularP();
+                @include letter($ls_8,$Grayscale-middle);
+                margin-left: 18px;
+                margin-top: 14px;
+                content: attr(ig-domain);
+                position: absolute;
+                z-index: 1;
+ 
+            }
+        
+            .youtube_input{
+                @include input_inner();
+                @include RegularP();
+                @include size (543.7px, 54px);
+                @include letter($ls_8,$Grayscale-middle);
+                position: relative;
+                margin-bottom: 8px;
+                padding-left:210px;
+            }
+            .yt_label::before{
+                @include RegularP();
+                @include letter($ls_8,$Grayscale-middle);
+                margin-left: 18px;
+                margin-top: 14px;
+                content: attr(ig-domain);
+                position: absolute;
+                z-index: 1;
+ 
+            }
+        
+
+        }
+    }
+
+
 
    }
 
    }
    
-   }
+   

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Select from 'react-select';
-import '../../../styles/page/_Certificate.scss';
+import '../../../styles/page/_Language.scss';
 
 const options = [
   { value: '운전면허증', label: '운전면허증' },
