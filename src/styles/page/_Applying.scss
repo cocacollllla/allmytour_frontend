@@ -222,6 +222,7 @@
                 @include letter($ls_8,$Grayscale-middle);
                 position: relative;
                 margin-bottom: 8px;
+                padding-left:221px;
             }
             .ig_label::before{
                 @include RegularP();
@@ -240,6 +241,7 @@
                 @include letter($ls_8,$Grayscale-middle);
                 position: relative;
                 margin-bottom: 8px;
+                padding-left:218px;
             }
             .fb_label::before{
                 @include RegularP();
@@ -259,7 +261,7 @@
                 @include letter($ls_8,$Grayscale-middle);
                 position: relative;
                 margin-bottom: 8px;
-                padding-left:210px;
+                padding-left:211px;
             }
             .yt_label::before{
                 @include RegularP();

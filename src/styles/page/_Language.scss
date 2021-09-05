@@ -6,3 +6,44 @@
 @import '../../styles/init/_Measures.scss';
 @import '../../styles/components/_Input.scss';
 @import '../../styles/components/_Button.scss';
+
+
+.css-yk16xz-control{
+   @include input_inner();
+   @include RegularP();
+   @include size (543.7px, 54px);
+   @include letter($ls_8,$Grayscale-middle);
+//    pointer-events: none;
+.css-g1d714-ValueContainer{
+   padding:0
+}
+
+.css-1hb7zxy-IndicatorsContainer {
+   position: absolute;
+   padding-left:480px;
+}
+.css-1rhbuit-multiValue {
+   display: absolute;
+   margin-top: 50px;
+}
+ .css-1wa3eu0-placeholder{
+    visibility: hidden;
+
+
+}}
+  
+// .css-2b097c-container{
+//     z-index: 3;
+//     @include size (543.7px, 54px);
+//     .css-yk16xz-control{
+//         @include size (543.7px, 54px);
+//     #react-select-3-input{
+//         caret-color: transparent;
+//     }
+
+// }
+//     .css-1okebmr-indicatorSeparator{
+//      display: none;
+//     }
+    
+// }

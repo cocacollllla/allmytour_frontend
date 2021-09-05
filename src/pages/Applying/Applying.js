@@ -1,12 +1,13 @@
 import React from 'react';
 import '../../styles/styles.scss';
 import './Aside/Certificate.js';
-import Certificate from './Aside/Certificate.js';
+// import Certificate from './Aside/Certificate.js';
+import Language from './Aside/Language';
 import ArrowBack from '../../assets/arrow_back.svg';
 import Camera from '../../assets/camera.svg';
 import Question from '../../assets/question.svg';
 import Dot from '../../assets/dot.svg';
-import { INPUT_DATA } from './Aside/INPUT_DATA';
+import { InputData } from './Aside/data';
 
 const Applying = () => {
   return (
@@ -114,7 +115,7 @@ const Applying = () => {
               영역에 대한 전문성을 입증할 수 있는 서류를 등록해주세요
             </div>
           </div>
-          <Certificate />
+          <Language />
         </div>
 
         <div className="user_sns_wrap">

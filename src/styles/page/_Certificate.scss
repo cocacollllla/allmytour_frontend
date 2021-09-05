@@ -9,12 +9,18 @@
 
 
 .css-2b097c-container{
+    z-index: 3;
     @include size (543.7px, 54px);
+    .css-yk16xz-control{
+        @include size (543.7px, 54px);
     #react-select-3-input{
         caret-color: transparent;
     }
+
+}
     .css-1okebmr-indicatorSeparator{
-        display: none;
+     display: none;
     }
+
     
 }
