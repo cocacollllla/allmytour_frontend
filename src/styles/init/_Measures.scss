@@ -34,7 +34,20 @@
     margin-left: $left;
   }
 
+@mixin left_padding_web{
+  padding-left:70px;
+}
+
+@mixin between_contents_right{
+  margin-right: 12px;
+}
+
+
 $ls_36:-0.36px;
 $ls_64:-0.64px;
 $ls_7:-0.7px;
 $ls_8:-0.8px;
+
+$vertical_section: 64px;
+$vertical_icons: 12px;
+$horizontal_icons: 8px;

@@ -8,26 +8,42 @@
 @import '../../styles/components/_Button.scss';
 
 .applying_page_whole_wrap{
-    width:1440px;
+    margin: 0 auto;
+
    
    .application_tabs{
-       @include padding(0, 170.5px, 0, 170px);
-       @include margin(106.5px, 0, 10.6px,0);      
+       width: 100%;
+       box-shadow: 0 2px 5px 0px rgba(182, 182, 182, 0.13);
+       @include margin(31.8px, initial, $vertical_section,0);
+        height: 64.6px;
+        text-align: center;
+        .taps_wrap{
+            display: flex;
+            width: 1100px;
+            margin: 0 auto;
+            .applgying_category{
+                @include between_contents_right;
+            width: calc((100% - 12px)/2);
+            display: flex;
+                .arrow_mark{
+                @include size (44px, 44px);
+                @include margin(10px, 0,0,0);
+                }
+                .applying_makers{
+                @include RegularP();
+                @include letter($ls_64,$system-black);
+                padding-left: 27.8px;
+                line-height:64.6px;
+                }
+            }
 
-       img{
-        @include margin(111.5px, 0, 0, 0.19px);     
-       }
-       .applying_makers{
-        @include RegularP();
-        @include letter($ls_64,$system-black);
-           display: inline-block;
-        
-       }
+    .applying_button_category{
+        width: calc((100% - 12px)/2);}
        .temporary_save{
            @include RegularP();
            @include Oval_button();
-           @include margin( 0,0,0,376.3px);  
-           width:264.3px;
+           @include size (264.3px, 54px);
+           margin-right: $horizontal_icons;
            background-color:$Grayscale-darker;
            letter-spacing: $ls_8;
        }
@@ -35,42 +51,50 @@
            @include RegularP();
            @include Oval_button();
            @include size (264.3px, 54px);
-           margin-left:14.6px;
            background-color:$primary-primary;
            border-radius: 100px;
            border: none;
            letter-spacing: $ls_8;
    
        }
+    }
    
-   }
+  }
    
    .contents{
-       @include MainSize();
+    width:1100px;
+        margin: 0 auto;
        .maker_name_wrap{
-   
-       .maker_name{
-           @include RegularP();
-           @include padding(0, 400px, 0, 0);
-           @include letter($ls_64, $system-black);
-           display: inline-block;
-           .ico {
-            @include ico();
-           }
-       }
+        .maker_name{
+            @include RegularP();
+            @include between_contents_right();
+            @include letter($ls_64, $system-black);
+            @include left_padding_web();
+            display: inline-block;
+            width: calc((100% - 12px)/2);
+            .ico {
+                @include ico();
+            }
+        }
        .maker_name_input{
-        @include RegularP();
-        @include size (543.7px, 54px);
-         @include input_inner();
-         @include letter($ls_8,$Grayscale-middle);
+            @include RegularP();
+            @include input_inner();
+            @include letter($ls_8,$Grayscale-middle);
+            width: calc((100% - 12px)/2);
+
+
+         
        }
    }
    .maker_nickname_wrap{
+       padding-top:$vertical_section;
        .maker_nickname{
+        @include between_contents_right();
         @include RegularP();
-        @include margin(92px, 389.3px,0,0);
         @include letter($ls_8, $system-black);
+        @include left_padding_web();
            display: inline-block;
+           width: calc((100% - 12px)/2);
            .ico {
             @include ico();
            }
@@ -80,15 +104,18 @@
         @include size (543.7px, 54px);
         @include input_inner();
         @include letter($ls_8,$Grayscale-middle);
-        margin-top: 64px;
+        width: calc((100% - 12px)/2);
+
        }
    }
    
    .profile_image_wrap{
-    @include size (initial, 155.2px);
-    @include margin(92px, 0,64px,0);
+
+    padding-top:$vertical_section;
        display: flex;
        .category_profile_image{
+        @include left_padding_web();
+        width: calc((100% - 12px)/2);
         margin-right:176.3px;
            .profile_image{
             @include size (initial, 26px);
@@ -105,45 +132,54 @@
             font-size: 12px;
            }
        }
-       
-       .preview_image{
-        @include size (157.3px, 155.2px);
-        position: relative;
-        border-radius:131px;
-        border: 1px solid rgb(213, 223, 217);
-           .camera_image{
-               position: absolute;
-               left:58.4px;
-               bottom:58.7px;
-          }
-       }
-       .uploading_image{
-           padding-left:19.2px;
-           .image_uploading_bttn{
-            @include size (367px, 54px);
-            border: 1px solid transparent;
-            border-radius: 10px;
-            color:$primary-primary;
-           }
-           .image_des_1{
-            @include RegularCaption();
-            @include letter($ls_36, $Grayscale-dark);
-            display: flex;
-            margin-top: 16px;
-            padding:0;
-           }
-           .image_des_2{
-            @include RegularCaption();
-            display: flex;
-            color: $Grayscale-darker;
-           }
-       }
+       .image_category_wrap{
+        width: calc((100% - 12px)/2);
+        display: flex;
+        .preview_image{
+            @include size (157.3px, 155.2px);
+            position: relative;
+            border-radius:131px;
+            border: 1px solid rgb(213, 223, 217);
+            .camera_image{
+                position: absolute;
+                left:58.4px;
+                bottom:58.7px;
+            }
+        }
+        .uploading_image{
+            padding-left:19.2px;
+            .image_uploading_bttn{
+                @include size (367px, 54px);
+                background-color: $system-white;
+                border: 1px solid transparent;
+                border-radius: 10px;
+                box-shadow: 0 1px 10px 0px rgba(27, 128, 109, 0.1);
+                color:$primary-primary;
+    
+            }
+            .image_des_1{
+                @include RegularCaption();
+                @include letter($ls_36, $Grayscale-dark);
+                display: flex;
+                margin-top: 16px;
+                padding:0;
+            }
+            .image_des_2{
+                @include RegularCaption();
+                @include letter($ls_36, $Grayscale-dark);
+                display: flex;
+
+            }
+        }
+    }
    }
 
    .maker_profile{
-       display: flex;
-       margin-bottom: 64px;
-       height: 150px;
+    @include left_padding_web();
+    padding-top:$vertical_section; 
+    display: flex;
+    margin-bottom: 64px;
+    height: 150px;
      .introduction{
         @include RegularP();
         @include letter($ls_8,$system-black);
@@ -162,7 +198,9 @@
     }
 
     .certificate_wrap{
-        @include size (initial, 155.2px);
+        @include left_padding_web();
+        @include between_contents_right;
+        width: calc((100% - 12px)/2);
         display: flex;
         .attaching_certificate{
 
@@ -175,7 +213,7 @@
             .certificate_des_1{
                 @include RegularCaption();
                 @include letter($ls_36, $Grayscale-dark);
-                width:310px;
+       
 
                 .ico{
                     @include ico();
@@ -195,10 +233,13 @@
         }
     }
     .user_sns_wrap{
+        padding-top:$vertical_section; 
         display: flex;
-        .category_hp_or_sns{
-           
-        }
+
+        .category_hp_or_sns{        
+            @include left_padding_web();
+            @include between_contents_right();
+            width: calc((100% - 12px)/2);}
         .title_sns{
             
          @include RegularP();
@@ -209,9 +250,9 @@
         .sns_desc{  
             @include RegularCaption();
             @include letter($ls_36, $Grayscale-dark);
-            margin-right: 119.3px;    
         }
         .sns_inputs{
+            width: calc((100% - 12px)/2);
              display: flex;
             flex-direction: column;
         
@@ -221,7 +262,7 @@
                 @include size (543.7px, 54px);
                 @include letter($ls_8,$Grayscale-middle);
                 position: relative;
-                margin-bottom: 8px;
+                margin-bottom: $vertical_icons;
                 padding-left:221px;
             }
             .ig_label::before{
@@ -240,7 +281,7 @@
                 @include size (543.7px, 54px);
                 @include letter($ls_8,$Grayscale-middle);
                 position: relative;
-                margin-bottom: 8px;
+                margin-bottom: $vertical_icons;
                 padding-left:218px;
             }
             .fb_label::before{
@@ -260,7 +301,6 @@
                 @include size (543.7px, 54px);
                 @include letter($ls_8,$Grayscale-middle);
                 position: relative;
-                margin-bottom: 8px;
                 padding-left:211px;
             }
             .yt_label::before{
@@ -277,8 +317,91 @@
 
         }
     }
+    .available_language_wrap{
+        display: flex;
+        padding-top:$vertical_section; 
+        .language_category{
+            @include left_padding_web;
+            @include between_contents_right;
+            width: calc((100% - 12px)/2);
+            .language_title{
+                @include size (initial, 26px);
+                @include letter($ls_8, $system-black);
+                @include RegularP();
+                display: inline-block;
+                padding-right: 3px;}
+            .language_des_1{
+                @include RegularCaption();
+                @include letter($ls_36, $Grayscale-dark);
+                width:310px;
 
+                .ico{
+                    @include ico();
+                }
+            }
+        }
+    }
 
+    .idcard_image_wrap{
+      padding-top:$vertical_section; 
+      @include margin(0, 0, 100px,0);
+      display: flex;
+           .idcard_category{
+            @include left_padding_web;
+            @include between_contents_right;
+            width: calc((100% - 12px)/2);
+
+               .idcard_title{
+                @include size (initial, 26px);
+                @include letter($ls_8, $system-black);
+                @include RegularP();
+                .ico {
+                    @include ico();
+                   }
+               }
+               .idcard_desc{
+                @include RegularCaption();
+                @include letter($ls_36,$Grayscale-dark);
+                display: inline-block;
+                width:341px;
+                font-size: 12px;
+
+               }
+           }
+           .uploading_id_category{
+            width: calc((100% - 12px)/2);
+            display: flex;
+            .preview_id_image{
+                @include size (157.3px, 155.2px);
+                position: relative;
+                border-radius:10px;
+                border: 1px solid rgb(213, 223, 217);
+                .camera_square_image{
+                    position: absolute;
+                    left:58.4px;
+                    bottom:58.7px;
+                }
+            }
+            .uploading_id_image{
+                padding-left:19.2px;
+                .id_uploading_bttn{
+                    @include size (367px, 54px);
+                    background-color: $system-white;
+                    box-shadow: 0 1px 10px 0px rgba(27, 128, 109, 0.1);
+                    border: 1px solid transparent;
+                    border-radius: 10px;
+                    color:$primary-primary;
+                }
+                .id_des_1{
+                    @include RegularCaption();
+                    @include letter($ls_36, $Grayscale-dark);
+                    display: flex;
+                    margin-top: 16px;
+                }
+            
+            }
+        }
+       }
 
    }
 

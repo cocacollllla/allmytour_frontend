@@ -51,7 +51,7 @@ export default function Language() {
       newValue.map(i => i.value)
     );
   };
-
+  console.log(selected);
   return (
     <SortableSelect
       useDragHandle

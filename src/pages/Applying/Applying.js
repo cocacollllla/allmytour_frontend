@@ -1,22 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../styles/styles.scss';
-import './Aside/Certificate.js';
-// import Certificate from './Aside/Certificate.js';
-import Language from './Aside/Language';
+import Certificate from './Aside/Certificate.js';
+// import Language from './Aside/Language';
 import ArrowBack from '../../assets/arrow_back.svg';
 import Camera from '../../assets/camera.svg';
 import Question from '../../assets/question.svg';
 import Dot from '../../assets/dot.svg';
-import { InputData } from './Aside/data';
+import TourType from './Aside/TourType.js';
 
 const Applying = () => {
   return (
     <div className="applying_page_whole_wrap">
       <div className="application_tabs">
-        <img src={ArrowBack} alt="arrow mark" heigth="44" width="44" />
-        <div className="applying_makers">메이커스 지원하기</div>
-        <button className="temporary_save">임시저장</button>
-        <button className="submission">메이커스 지원서 제출</button>
+        <div className="taps_wrap">
+          <div className="applgying_category">
+            <img
+              className="arrow_mark"
+              src={ArrowBack}
+              alt="arrow mark"
+              heigth="44"
+              width="44"
+            />
+            <div className="applying_makers">메이커스 지원하기</div>
+          </div>
+          <div className="applying_button_category">
+            <button className="temporary_save">임시저장</button>
+            <button className="submission">메이커스 지원서 제출</button>
+          </div>
+        </div>
       </div>
       <main className="contents">
         {/* 메이커 이름 */}
@@ -27,7 +38,7 @@ const Applying = () => {
           <input
             className="maker_name_input"
             placeholder="메이커 이름을 입력해주세요"
-          ></input>
+          />
         </div>
         {/* 메이커 닉네임 */}
         <div className="maker_nickname_wrap">
@@ -52,36 +63,40 @@ const Applying = () => {
               추후 상품 업로드 시, 수정가능 합니다.
             </div>
           </div>
-          <div className="preview_image">
-            <img
-              className="camera_image"
-              src={Camera}
-              alt="camera"
-              heigth="44"
-              width="44"
-            />
-          </div>
-          <div className="uploading_image">
-            <button className="image_uploading_bttn">이미지파일 업로드</button>
-            <div className="image_des_1">
+          <div className="image_category_wrap">
+            <div className="preview_image">
               <img
-                className="dot_image"
-                src={Dot}
-                alt="dots"
-                height="24"
-                width="24"
+                className="camera_image"
+                src={Camera}
+                alt="camera"
+                heigth="44"
+                width="44"
               />
-              240px*240px 이미지를 업로드 해주세요
             </div>
-            <div className="image_des_2">
-              <img
-                className="dot_image"
-                src={Dot}
-                alt="dots"
-                height="24"
-                width="24"
-              />
-              JPG, JPEG, PNG, PDF/100KB 이하 파일 1개만 업로드 가능합니다.
+            <div className="uploading_image">
+              <button className="image_uploading_bttn">
+                이미지파일 업로드
+              </button>
+              <div className="image_des_1">
+                <img
+                  className="dot_image"
+                  src={Dot}
+                  alt="dots"
+                  height="24"
+                  width="24"
+                />
+                240px*240px 이미지를 업로드 해주세요
+              </div>
+              <div className="image_des_2">
+                <img
+                  className="dot_image"
+                  src={Dot}
+                  alt="dots"
+                  height="24"
+                  width="24"
+                />
+                JPG, JPEG, PNG, PDF/100KB 이하 파일 1개만 업로드 가능합니다.
+              </div>
             </div>
           </div>
         </div>
@@ -115,7 +130,8 @@ const Applying = () => {
               영역에 대한 전문성을 입증할 수 있는 서류를 등록해주세요
             </div>
           </div>
-          <Language />
+          {/* <Language /> */}
+          <Certificate />
         </div>
 
         <div className="user_sns_wrap">
@@ -142,12 +158,51 @@ const Applying = () => {
         </div>
 
         {/* 사용 가능한 언어 */}
-        <div className="capable_language_wrap">
-          <div className="documents_title">증빙서류</div>
-          <span className="certificate_des_1">
-            중복선택가능 <span className="ico">*</span>
-          </span>
-          {/* <Language /> */}
+        <div className="available_language_wrap">
+          <div className="language_category">
+            <div className="language_title">사용가능한 언어</div>
+            <span className="language_des_1">
+              중복선택가능 <span className="ico">*</span>
+            </span>
+          </div>
+          <Certificate />
+        </div>
+
+        {/* 신분증 */}
+        <div className="idcard_image_wrap">
+          <div className="idcard_category">
+            <div className="idcard_title">
+              신분증<span className="ico">*</span>
+            </div>
+            <div className="idcard_desc">
+              메이커 본인 확인을 위해 대표 구성원 1인의 신분증 사본을
+              등록해주세요
+            </div>
+          </div>
+          <div className="uploading_id_category">
+            <div className="preview_id_image">
+              <img
+                className="camera_square_image"
+                src={Camera}
+                alt="camera"
+                heigth="44"
+                width="44"
+              />
+            </div>
+            <div className="uploading_id_image">
+              <button className="id_uploading_bttn">이미지파일 업로드</button>
+              <div className="id_des_1">
+                <img
+                  className="dot_image"
+                  src={Dot}
+                  alt="dots"
+                  height="24"
+                  width="24"
+                />
+                JPG, JPEG, PNG, PDF/100KB 이하 파일 1개만 업로드 가능합니다.
+              </div>
+            </div>
+          </div>
         </div>
       </main>
     </div>
