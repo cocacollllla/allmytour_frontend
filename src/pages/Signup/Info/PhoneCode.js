@@ -87,6 +87,7 @@ export const PhoneCode = ({
           )}
         </div>
         <button
+          type="button"
           className={`button3 writing_btn ${
             isPhoneCodeSuccess && 'success_btn'
           }`}

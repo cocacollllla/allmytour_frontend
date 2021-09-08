@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { API } from '../../config';
 import '../../styles/styles.scss';
 
 export const SignupDone = () => {
@@ -7,7 +8,7 @@ export const SignupDone = () => {
 
   useEffect(() => {
     axios
-      .get('http://192.168.11.189:8000/users/name', {
+      .get(`${API.USER_NAME}`, {
         headers: {
           Authorization: localStorage.getItem('token'),
         },

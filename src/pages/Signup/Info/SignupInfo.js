@@ -6,6 +6,7 @@ import Email from './Email';
 import Password from './Password';
 import Check from '../../../assets/check.svg';
 import Error from '../../../assets/error.svg';
+import { API } from '../../../config';
 import '../../../styles/styles.scss';
 
 export const SignupInfo = ({ history }) => {
@@ -13,10 +14,6 @@ export const SignupInfo = ({ history }) => {
   const [checkPhoneCode, setCheckPhoneCode] = useState('');
   const [phoneCodebox, setPhoneCodeBox] = useState(false);
   const [timer, setTimer] = useState(false);
-  // const [passwordType, setPasswordType] = useState({
-  //   type: 'password',
-  //   which: '',
-  // });
   const [passwordType, setPasswordType] = useState('password');
   const [rePasswordType, setRePasswordType] = useState('password');
 
@@ -64,39 +61,45 @@ export const SignupInfo = ({ history }) => {
       pwdsame = true;
     }
   }
+
   const signupBtn =
     signupForm.name.length >= 1 &&
     pwdsame &&
     checkEmail === 'success' &&
     checkPhoneCode === 'success';
 
-  const handleClickEemailCheck = () => {
-    axios
-      .post('http://192.168.11.189:8000/users/email', {
-        email: signupForm.email,
-      })
-      .then(function (response) {
-        setCheckEmail('success');
-      })
-      .catch(function (error) {
-        setCheckEmail('error');
-      });
-  };
-
   const handleClickSignup = e => {
     e.preventDefault();
     axios
-      .post('http://192.168.11.189:8000/users/signup', {
+      .post(`${API.SIGNUP}`, {
         name: signupForm.name,
         email: signupForm.email,
         password: signupForm.pw,
         phone_number: signupForm.phone_number,
       })
       .then(function (response) {
-        console.log(response);
-        if (response.data.TOKEN) {
-          localStorage.setItem('token', response.data.TOKEN);
-          history.push('/signupdone');
+        if (response.data.MESSAGE === 'SUCCESS') {
+          if (response.data.TOKEN) {
+            localStorage.setItem('token', response.data.TOKEN);
+            history.push('/signupdone');
+          }
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  const handleClickEemailCheck = () => {
+    axios
+      .post(`${API.SIGNUP_EMAIL}`, {
+        email: signupForm.email,
+      })
+      .then(function (response) {
+        if (response.data.MESSAGE === 'SUCCESS') {
+          setCheckEmail('success');
+        } else {
+          setCheckEmail('error');
         }
       })
       .catch(function (error) {
@@ -106,12 +109,14 @@ export const SignupInfo = ({ history }) => {
 
   const handleClickGetPhoneCode = () => {
     axios
-      .post('http://192.168.11.189:8000/users/sms', {
+      .post(`${API.SIGNUP_GET_PHONECODE}`, {
         phone_number: signupForm.phone_number,
       })
       .then(function (response) {
-        setPhoneCodeBox(true);
-        setTimer(true);
+        if (response.data.MESSAGE === 'SUCCESS') {
+          setPhoneCodeBox(true);
+          setTimer(true);
+        }
       })
       .catch(function (error) {
         console.log(error);
@@ -120,21 +125,21 @@ export const SignupInfo = ({ history }) => {
 
   const handleClickPostPhoneCode = () => {
     axios
-      .post('http://192.168.11.189:8000/users/sms-verification', {
+      .post(`${API.SIGNUP_POST_PHONECODE}`, {
         phone_number: signupForm.phone_number,
         auth_number: signupForm.phone_code,
       })
       .then(function (response) {
         if (response.data.MESSAGE === 'SUCCESS') {
           setCheckPhoneCode('success');
+        } else if (response.data.MESSAGE === 'INVALID_AUTH_NUMBER') {
+          setCheckPhoneCode('invalid');
+        } else if (response.data.MESSAGE === 'EXPIRED_CODE') {
+          setCheckPhoneCode('expired');
         }
       })
       .catch(function (error) {
-        if (error.response.data.MESSAGE === 'INVALID_AUTH_NUMBER') {
-          setCheckPhoneCode('invalid');
-        } else if (error.response.data.MESSAGE === 'EXPIRED_CODE') {
-          setCheckPhoneCode('expired');
-        }
+        console.log(error);
       });
   };
 
@@ -175,8 +180,7 @@ export const SignupInfo = ({ history }) => {
 
         <button
           type="submit"
-          className="button1 signup_btn"
-          // onClick={handleClickSignup}
+          className="button1 sign_btn"
           disabled={signupBtn ? '' : 'disabled'}
         >
           회원가입

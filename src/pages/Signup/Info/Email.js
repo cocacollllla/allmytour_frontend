@@ -11,6 +11,7 @@ export const Email = ({
 }) => {
   const isEmailSuccess = checkEmail === 'success';
   const isEmailError = checkEmail === 'error';
+
   const emailUse = () => {
     if (isEmailSuccess) {
       return <ResultText check={check} text="사용가능한 아이디입니다" />;
@@ -26,6 +27,7 @@ export const Email = ({
       return null;
     }
   };
+
   return (
     <div className="input_wrap">
       <div className="input_title">아이디(이메일)</div>
@@ -44,6 +46,7 @@ export const Email = ({
           required
         />
         <button
+          type="button"
           onClick={handleClickEemailCheck}
           className={`button3 writing_btn ${
             isEmailSuccess ? 'success_btn' : ''
