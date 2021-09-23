@@ -1,0 +1,40 @@
+@import '../init/Color.scss';
+
+@mixin Oval_button {
+  padding: 13px 0;
+  border-radius: 100px;
+  border: none;
+  color: $system-white;
+}
+
+@mixin Rect_button {
+  padding: 14px 0;
+  border: none;
+  border-radius: 10px;
+  color: $system-white;
+}
+
+.writing_btn {
+  @include RegularP;
+  letter-spacing: $ls_8;
+  width: 105px;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.writing_btn:disabled {
+  @include RegularP;
+  background-color: $button-disabled;
+  color: $system-white;
+  letter-spacing: $ls_8;
+  width: 105px;
+  cursor: default;
+}
+
+.success_btn {
+  @include RegularP;
+  width: 105px;
+  margin-top: 8px;
+  background-color: $primary-primary;
+  color: $system-white;
+}

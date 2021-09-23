@@ -1,3 +1,11 @@
+
+  
+  * {
+    box-sizing: border-box;
+    font-family: 'SpoqaHanSansNeoRegular', ‘sans-serif’;
+  }
+ 
+
 html,
 body,
 div,
@@ -83,9 +91,10 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
+  font: inherit;
   vertical-align: baseline;
 }
-
+/* / HTML5 display-role reset for older browsers / */
 article,
 aside,
 details,
@@ -97,39 +106,26 @@ hgroup,
 menu,
 nav,
 section {
-  display: block;
+  display: flex;
 }
-
 body {
   line-height: 1;
 }
-
 ol,
 ul {
   list-style: none;
 }
-
 blockquote,
 q {
   quotes: none;
 }
-
-blockquote {
-  &:before,
-  &:after {
-    content: '';
-    content: none;
-  }
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
 }
-
-q {
-  &:before,
-  &:after {
-    content: '';
-    content: none;
-  }
-}
-
 table {
   border-collapse: collapse;
   border-spacing: 0;

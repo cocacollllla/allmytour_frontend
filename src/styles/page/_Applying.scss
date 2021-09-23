@@ -1,0 +1,89 @@
+@import '../../styles/init/Common.scss';
+@import '../../styles/init/Mixin.scss';
+@import '../../styles/init/Reset.scss';
+@import '../../styles/init/Color.scss';
+@import '../../styles/init/Font.scss';
+@import '../../styles/init/Measures.scss';
+@import '../../styles/components/Input.scss';
+@import '../../styles/components/Button.scss';
+
+.applying_page_whole_wrap{
+    width:1440px;
+   
+   .application_tabs{
+       img{
+           
+       }
+       .applying_makers{
+           display: inline-block;
+           @include RegularP();
+       }
+       .temporary_save{
+           @include RegularP();
+           @include Oval_button();
+        //    margin-left: 376.3px;
+           width:264.3px;
+  
+        //    border-radius: 100px;
+        //    border: none;
+        //    background-color:$Grayscale-darker;
+        //    color: $system-white;
+       }
+       .submission{
+           @include RegularP();
+           margin-left:8px;
+           width:264.3px;
+           height:54px;
+           border-radius: 100px;
+           border: none;
+           background-color:$primary-primary;
+           color: $system-white;
+   
+       }
+   
+   }
+   
+   .contents{
+       @include MainSize();
+       .maker_name_wrap{
+   
+       .maker_name{
+           @include RegularP();
+           display: inline-block;
+           padding-top: 0;
+           padding-right: 400px;
+           color:$system-black;
+   
+           span{
+               font-size: 16px;
+               color: rgb(235, 87, 87);
+           }
+       }
+       .maker_name_input{
+           @include size (543.7px, 54px);
+         @include input_inner();
+     
+           
+           // ::placeholder{
+           //     @include RegularP();
+           //     color:$system-black;
+           // }
+           
+           
+   
+       }
+   }
+   .maker_nickname_wrap{
+       .maker_nickname{
+           // display: inline-block;
+           margin-top: 92px;
+           margin-right: 389.3px;
+       }
+       .maker_nickname_input{
+           margin-top: 64px;
+       }
+   }
+   
+   }
+   
+   }

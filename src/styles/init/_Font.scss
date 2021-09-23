@@ -1,14 +1,14 @@
-@mixin boldH1Font {
+@mixin boldH1 {
   font-family: 'SpoqaHanSansNeoBold';
   font-size: 24px;
   line-height: 160%;
 }
-@mixin boldbigPFont {
+@mixin boldbigP {
   font-family: 'SpoqaHanSansNeoBold';
   font-size: 18px;
   line-height: 155%;
 }
-@mixin boldPFont {
+@mixin boldP {
   font-family: 'SpoqaHanSansNeoBold';
   font-size: 16px;
   line-height: 150%;
@@ -66,9 +66,28 @@
   line-height: 160%;
 }
 
-@mixin flex($flex-direction, $justify-content, $align-items) {
-  display: flex;
-  flex-direction: $flex-direction;
-  justify-content: $justify-content;
-  align-items: $align-items;
+@font-face {
+  font-family: 'SpoqaHanSansNeoBold';
+  src: url('../../fonts/SpoqaHanSansNeo_TTF_original/SpoqaHanSansNeo-Bold.ttf')
+    format('truetype');
+}
+@font-face {
+  font-family: 'SpoqaHanSansNeoMedium';
+  src: url('../../fonts/SpoqaHanSansNeo_TTF_original/SpoqaHanSansNeo-Medium.ttf')
+    format('truetype');
+}
+@font-face {
+  font-family: 'SpoqaHanSansNeoRegular';
+  src: url('../../fonts/SpoqaHanSansNeo_TTF_original/SpoqaHanSansNeo-Regular.ttf')
+    format('truetype');
+}
+@font-face {
+  font-family: 'SpoqaHanSansNeoLight';
+  src: url('../../fonts/SpoqaHanSansNeo_TTF_original/SpoqaHanSansNeo-Light.ttf')
+    format('truetype');
+}
+@font-face {
+  font-family: 'SpoqaHanSansNeoThin';
+  src: url('../../fonts/SpoqaHanSansNeo_TTF_original/SpoqaHanSansNeo-Thin.ttf')
+    format('truetype');
 }

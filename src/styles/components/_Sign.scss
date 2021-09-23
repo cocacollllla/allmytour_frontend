@@ -1,0 +1,35 @@
+.input_wrap {
+  margin-bottom: 32px;
+
+  &:last-of-type {
+    margin-bottom: 48px;
+  }
+
+  .input_title {
+    @include RegularsmallP;
+    letter-spacing: $ls_7;
+
+    &:after {
+      content: '*';
+      color: #ff0000;
+      font-size: 16px;
+    }
+  }
+
+  p {
+    @include RegularCaption;
+    margin-top: 3px;
+  }
+
+  .caption {
+    color: $Grayscale-darker;
+  }
+
+  .input_box {
+    @include flex(row, space-between, center);
+
+    input {
+      width: 220px;
+    }
+  }
+}
