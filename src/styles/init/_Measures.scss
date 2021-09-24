@@ -29,9 +29,9 @@
 
   @mixin padding($top, $right,$bottom,$left){
     padding-top: $top;
-    margin-right: $right;
-    margin-bottom:$bottom;
-    margin-left: $left;
+    padding-right: $right;
+    padding-bottom:$bottom;
+    padding-left: $left;
   }
 
 @mixin left_padding_web{
@@ -47,6 +47,9 @@ $ls_36:-0.36px;
 $ls_64:-0.64px;
 $ls_7:-0.7px;
 $ls_8:-0.8px;
+$ls_96:-0.96px;
+$ls_56:-0.56px;
+
 
 $vertical_section: 64px;
 $vertical_icons: 12px;

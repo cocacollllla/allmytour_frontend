@@ -1,0 +1,99 @@
+@import '../../styles/init/_Common.scss';
+@import '../../styles/init/_Mixin.scss';
+@import '../../styles/init/_Reset.scss';
+@import '../../styles/init/_Color.scss';
+@import '../../styles/init/_Font.scss';
+@import '../../styles/init/_Measures.scss';
+@import '../../styles/components/_Input.scss';
+@import '../../styles/components/_Button.scss';
+
+.applying_success_wrap{
+    width: 1100px;
+     margin: 0 auto;
+    .applying_sucess_category{
+        margin-top: 115.4px;
+        .complete_header{
+            @include letter($ls_96, $system-black);
+            @include boldH1;
+            width: calc(100%);
+        }
+        .subtitle{
+            @include RegularP;
+            @include letter($ls_8, $Grayscale-dark);
+            margin-top: 16px;
+        }
+    .status_des_wrap{
+        margin-top: 69.8px;
+        .status_des{
+            @include letter($ls_64, $Grayscale-darker);
+            @include MediumP;
+        }
+
+        .progress_status{
+            display: flex;
+            margin-top: 39px;
+            .progress_icon{
+                display: inline-block;
+                @include size(97px, 29px);
+                @include padding(4px, 0, 3px, 16px);
+                @include MediumsmallP;
+                @include letter($ls_56, $Grayscale-middle);
+                border: $Grayscale-middle 1px solid;
+                border-radius: 2px;
+            }
+            .progress_des{
+                display: inline-block;
+                margin-left: 36.8px;
+                @include RegularP;
+                @include letter($ls_8, $Grayscale-dark);
+            }
+        }
+
+        .modify_request{
+            display: flex;
+            margin-top: 28px;
+            .modify_request_icon{
+                @include size(82px, 29px);
+                @include padding(4px, 0, 3px, 16px);
+                @include MediumsmallP;
+                @include letter($ls_56, $primary-primary);
+                display: inline-block;
+                border: $primary-primary 1px solid;
+                border-radius: 2px;
+            }
+            .modify_des{
+                display: inline-block;
+                margin-left: 46.8px;
+                @include RegularP;
+                @include letter($ls_8, $Grayscale-dark);
+            }
+        }
+
+        .complete_wrap{
+            display: flex;
+            margin-top: 31px;
+            .complete_icon{
+                @include size(82px, 29px);
+                @include padding(4px, 0, 3px, 16px);
+                @include MediumsmallP;
+                @include letter($ls_56, $primary-primary);
+                display: inline-block;
+                border: $primary-primary 1px solid;
+                border-radius: 2px;
+            }
+            .complete_des{
+                display: inline-block;
+                margin-left: 46.8px;
+                @include RegularP;
+                @include letter($ls_8, $Grayscale-dark);
+            }
+        }
+    }
+        .button1{
+            @include size(367.5px, 53px);
+            margin-top: 69.8px;
+            margin-bottom: 131.4px;
+            cursor: pointer;
+        }
+    }
+    }

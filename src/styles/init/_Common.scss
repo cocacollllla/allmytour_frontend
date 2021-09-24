@@ -1,5 +1,84 @@
+@import './_Color.scss';
+@import './_Measures.scss';
+@import '../components/_Button.scss';
+@import './_Font.scss';
+@import '../components/_Input.scss';
 
-  * {
-    box-sizing: border-box;
-    font-family: 'SpoqaHanSansNeoRegular', ‘sans-serif’;
+
+* {
+  box-sizing: border-box;
+  font-family: 'SpoqaHanSansNeoRegular', ‘sans-serif’;
+  ::placeholder {
+    color: $Grayscale-middle;
+    letter-spacing: $ls_8;
+  }
+}
+input {
+  @include input_inner;
+  color: $Grayscale-darker;
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px $primary-primary;
+  }
+  &:disabled{
+  background-color: $Grayscale-lighter;
+  cursor: default;
+  }
+}
+
+
+.button1{
+@include Oval_button();
+@include RegularP();
+ background-color: $primary-primary;
+ letter-spacing: $ls_8;
+ &:hover{
+  background-color: $primary-Light;
+ }
+ &:disabled{
+  background-color:$button-disabled;
+  cursor: default;
+}
+
+}
+
+
+ .button2{
+  @include Oval_button;
+  @include RegularP();
+   background-color: $Grayscale-darker;
+   letter-spacing: $ls_8;
+   &:hover{
+    background-color: $system-black;
+   }
+   &:disabled{
+    background-color: $Grayscale-light;
+    cursor: default;
+  }
+  }
+
+  .button3{
+    @include size (367px, 54px);
+    background-color: $system-white;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    box-shadow: 0 1px 10px 0px rgba(27, 128, 109, 0.1);
+    color:$primary-primary;
+    &:disabled{
+      color:$primary-Lighter;
+      cursor: default;
+      }
+  }
+
+  .button4{
+    @include size (488px, 54px);
+    background-color: $system-white;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    box-shadow: 0 1px 10px 0px rgba(27, 128, 109, 0.1);
+    color:$primary-primary;
+    &:disabled{
+      color:$primary-Lighter;
+      cursor: default;
+      }
   }

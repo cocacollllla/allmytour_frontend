@@ -3,7 +3,7 @@
 @mixin input_inner{
     padding: 14px 0 14px 18px;
     border-radius:10px;
-    border: 1px solid rgb(213, 223, 217);
+    border: 1px solid $border-line;
     @include RegularP();
     height:54px;
 }

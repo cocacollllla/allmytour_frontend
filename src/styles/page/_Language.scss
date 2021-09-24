@@ -8,38 +8,68 @@
 @import '../../styles/components/_Button.scss';
 
 
-// .css-yk16xz-control{
-//    @include input_inner();
-//    @include RegularP();
-//    @include size (543.7px, 54px);
-//    @include letter($ls_8,$Grayscale-middle);
-// //    pointer-events: none;
-// .css-g1d714-ValueContainer{
-//    padding:0
-// }
+  // 옵션 랩의 하이트를 삭제하기!!!
+  // 사용 가느앟ㄴ 언어 아이콘 뜨는 부분 -> flex:wrap
+  //기타 없애기
+.language_option_wrap {
+    z-index: 3;
+    width: 543.7px;
 
-// .css-1hb7zxy-IndicatorsContainer {
-//    position: absolute;
-//    padding-left:480px;
-// }
-// .css-1rhbuit-multiValue {
-//    display: absolute;
-//    margin-top: 50px;
-// }
-//  }
-  
-// .css-2b097c-container{
-//     z-index: 3;
-//     @include size (543.7px, 54px);
-//     .css-yk16xz-control{
-//         @include size (543.7px, 54px);
-//     #react-select-3-input{
-//         caret-color: transparent;
-//     }
+    .lagnuage_option_box{
+        @include size (543.7px, 54px);
+        @include letter($ls_8,$Grayscale-middle);
+         @include input_inner;
+        padding-right: 100px;
+        appearance:none;
+        background:url('../../assets/arrow_down.svg') no-repeat 97% 50%/24px auto;
+    }
 
-// }
-//     .css-1okebmr-indicatorSeparator{
-//      display: none;
-//     }
-    
-// }
+    .arrow_down{
+        z-index: 10;
+        background-color: red;
+        color: red;
+    }
+    .chosen_language_wrap{
+        display: flex;
+
+        .active_chosen_language_category{
+          margin-bottom: 30px;
+        } 
+        // margin-bottom:$vertical_section;
+        
+    .chosen_language_category{
+        top: 100px;
+
+      
+
+        .others{
+            display: flex;
+       flex-direction: column;
+        }
+        .chosen_language{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include Oval_button;
+            @include padding(8px, 14px, 8px, 18px);
+            @include letter($ls_8,$system-white);
+            margin-top: $vertical_icons;
+            margin-right: $horizontal_icons;
+            height:42px;
+            background-color: $primary-primary ; 
+            
+         .remove_lan_option{
+            background-color: $primary-primary ;
+            border:none;
+            outline:none;
+         }
+       
+        .delete_mark{
+            background-color: $primary-primary ;
+        }
+    }
+    }
+
+
+}
+}

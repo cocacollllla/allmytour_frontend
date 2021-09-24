@@ -1,76 +1,92 @@
-import React from 'react';
-import Select, { components } from 'react-select';
-import {
-  SortableContainer,
-  SortableElement,
-  sortableHandle,
-} from 'react-sortable-hoc';
+import React, { useState, useEffect } from 'react';
+import '../../../styles/page/_Language.scss';
+import Delete from '../../../assets/delete.svg';
+import { LANGUAGE_DATA } from './LANGUAGE_DATA';
+import axios from 'axios';
 
-function arrayMove(array, from, to) {
-  array = array.slice();
-  array.splice(to < 0 ? array.length + to : to, 0, array.splice(from, 1)[0]);
-  return array;
-}
-
-const SortableMultiValue = SortableElement(props => {
-  // this prevents the menu from being opened/closed when the user clicks
-  // on a value to begin dragging it. ideally, detecting a click (instead of
-  // a drag) would still focus the control and toggle the menu, but that
-  // requires some magic with refs that are out of scope for this example
-  const onMouseDown = e => {
-    e.preventDefault();
-    e.stopPropagation();
+export default function Language({ selected, setSelected }) {
+  const handleSelect = e => {
+    const selectedArr = selected.concat(e.target.value);
+    const set = new Set(selectedArr);
+    const uniqueArr = [...set];
+    setSelected(uniqueArr);
   };
-  const innerProps = { ...props.innerProps, onMouseDown };
-  return <components.MultiValue {...props} innerProps={innerProps} />;
-});
 
-const SortableMultiValueLabel = sortableHandle(props => (
-  <components.MultiValueLabel {...props} />
-));
-
-const SortableSelect = SortableContainer(Select);
-
-export default function Language() {
-  const [selected, setSelected] = React.useState([null]);
-
-  const options = [
-    { value: '운전면허증', label: '운전면허증' },
-    { value: '한국관광통역안내사', label: '한국관광통역안내사' },
-    { value: '사업자 등록증', label: '사업자 등록증' },
-    { value: '각종 자격증 등', label: '각종 자격증 등' },
-  ];
-
-  const onChange = selectedOptions => setSelected(selectedOptions);
-
-  const onSortEnd = ({ oldIndex, newIndex }) => {
-    const newValue = arrayMove(selected, oldIndex, newIndex);
-    setSelected(newValue);
-    console.log(
-      'Values sorted:',
-      newValue.map(i => i.value)
-    );
+  const handleRemove = lan => {
+    setSelected(selected.filter(info => info !== lan));
   };
-  console.log(selected);
+
+  useEffect(() => {
+    const languageList = [...selected];
+    const lanFormData = new FormData();
+    languageList.forEach(item => {
+      lanFormData.append('languageList[]', item);
+    });
+    console.log('language확인 중', lanFormData);
+    // axios.post('주소', lanFormData);
+  }, [selected]);
+
   return (
-    <SortableSelect
-      useDragHandle
-      // react-sortable-hoc props:
-      axis="xy"
-      onSortEnd={onSortEnd}
-      distance={4}
-      // small fix for https://github.com/clauderic/react-sortable-hoc/pull/352:
-      getHelperDimensions={({ node }) => node.getBoundingClientRect()}
-      // react-select props:
-      isMulti
-      options={options}
-      value={selected}
-      onChange={onChange}
-      components={{
-        MultiValue: SortableMultiValue,
-        MultiValueLabel: SortableMultiValueLabel,
-      }}
-      // closeMenuOnSelect={false}
-    />
+    <div className="available_language_wrap">
+      <div className="language_category">
+        <div className="language_title">사용가능한 언어</div>
+        <span className="language_des_1">
+          중복선택가능 <span className="ico">*</span>
+        </span>
+      </div>
+      <form className="language_option_wrap">
+        <select
+          className="lagnuage_option_box"
+          value={selected}
+          onChange={handleSelect}
+        >
+          <option value="" disabled selected>
+            사용가능한 언어를 선택해주세요
+          </option>
+          {LANGUAGE_DATA.languageInfo.map((option, id) => {
+            return (
+              <>
+                <option key={id} content={option.content}>
+                  {option.content}
+                </option>
+              </>
+            );
+          })}
+          ;
+        </select>
+        <div className="chosen_language_wrap">
+          {selected.map((lan, idx) => (
+            <>
+              <div
+                className={`chosen_language_category ${
+                  lan === '기타언어' ? 'active_chosen_language_category' : ''
+                }`}
+                key={idx}
+              >
+                <div className="chosen_language">
+                  {lan}
+                  <div
+                    className="remove_lan_option"
+                    onClick={() => {
+                      handleRemove(lan);
+                    }}
+                  >
+                    <img className="delete_mark" src={Delete} alt="delete" />
+                  </div>
+                </div>
+              </div>
+              <div>
+                {lan === '기타언어' ? (
+                  <input
+                    className="others"
+                    placeholder="기타언어를 입력해주세요"
+                  />
+                ) : null}
+              </div>
+            </>
+          ))}
+        </div>
+      </form>
+    </div>
   );
 }
