@@ -28,9 +28,7 @@ export const PhoneNumber = ({
           required
         />
         <button
-          className={`button3 writing_btn ${
-            checkPhoneCode ? 'success_btn' : ''
-          }`}
+          className={`button3 writing_btn ${phoneCodebox ? 'success_btn' : ''}`}
           onClick={handleClickGetPhoneCode}
           disabled={isValidPhone ? '' : 'disabled'}
         >
