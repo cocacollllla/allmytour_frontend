@@ -58,30 +58,44 @@ input[type='number'] {
   }
 }
 
-.button2 {
+.button2{
   @include Oval_button;
-  background-color: $Grayscale-darker;
-
-  &:hover {
+  @include RegularP();
+   background-color: $Grayscale-darker;
+   letter-spacing: $ls_8;
+   &:hover{
     background-color: $system-black;
-  }
-
-  &:disabled {
+   }
+   &:disabled{
     background-color: $Grayscale-light;
     cursor: default;
   }
-}
-
-.button3 {
-  @include size(367px, 54px);
-  background-color: $system-white;
-  border: 1px solid transparent;
-  border-radius: 10px;
-  box-shadow: 0 1px 10px 0px rgba(27, 128, 109, 0.1);
-  color: $primary-primary;
-
-  &:disabled {
-    color: $primary-Lighter;
-    cursor: default;
   }
-}
+
+
+  .button3{
+    @include size (367px, 54px);
+    background-color: $system-white;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    box-shadow: 0 1px 10px 0px rgba(27, 128, 109, 0.1);
+    color:$primary-primary;
+    &:disabled{
+      color:$primary-Lighter;
+      cursor: default;
+      }
+  }
+
+
+  .button4{
+    @include size (488px, 54px);
+    background-color: $system-white;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    box-shadow: 0 1px 10px 0px rgba(27, 128, 109, 0.1);
+    color:$primary-primary;
+    &:disabled{
+      color:$primary-Lighter;
+      cursor: default;
+      }
+  }

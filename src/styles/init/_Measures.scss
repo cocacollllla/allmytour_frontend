@@ -1,5 +1,17 @@
 @mixin MainSize {
-  padding: 271.1px 170.3px 0 241px;
+    padding: 100px 177.2px 0 233px;
+  }
+
+  @mixin MainHeader{
+    padding: 0 170.5px 10.6px 170px;
+  }
+  
+@mixin left_padding_web{
+  padding-left:70px;
+}
+
+@mixin between_contents_right{
+  margin-right: 12px;
 }
 
 @mixin size($width, $height) {
@@ -32,3 +44,9 @@ $ls_36: -0.36px;
 $ls_64: -0.64px;
 $ls_7: -0.7px;
 $ls_8: -0.8px;
+$ls_96:-0.96px;
+$ls_56:-0.56px;
+
+$vertical_section: 64px;
+$vertical_icons: 12px;
+$horizontal_icons: 8px;

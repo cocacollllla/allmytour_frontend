@@ -1,0 +1,61 @@
+@import '../../styles/init/_Common.scss';
+@import '../../styles/init/_Mixin.scss';
+@import '../../styles/init/_Reset.scss';
+@import '../../styles/init/_Color.scss';
+@import '../../styles/init/_Font.scss';
+@import '../../styles/init/_Measures.scss';
+@import '../../styles/components/_Input.scss';
+@import '../../styles/components/_Button.scss';
+
+
+.certificate_option_wrap {
+   
+    width: calc((100% - 12px)/2);
+    .certificate_option_box{
+        @include size (543.7px, 54px);
+        @include letter($ls_8,$Grayscale-middle);
+         @include input_inner;
+        padding-right: 100px;
+        appearance:none;
+        background:url('../../assets/arrow_down.svg') no-repeat 97% 50%/24px auto;
+    }
+    .detail_info_wrap{
+    .img_detail_des_1{
+        @include RegularCaption();
+        @include letter($ls_36, $Grayscale-dark);
+        display: flex;
+        margin-top: 16px;
+        padding:0;
+    }
+    .img_detail_des_2{
+        @include RegularCaption();
+        @include letter($ls_36, $Grayscale-dark);
+        display: flex;
+
+    }
+}
+    .chosen_certificate_icons{
+        display: flex;
+
+    .chosen_certificate{
+        @include Oval_button;
+        @include padding(8px, 14px, 8px, 18px);
+        @include letter($ls_8,$system-white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: $vertical_icons;
+        margin-right: $horizontal_icons;
+        background-color: $primary-primary ; 
+    }
+}
+
+.file_uploading_wrap{
+    position: relative;
+    margin-top: $vertical_icons;
+    .plus_emoticon{
+        position: absolute;
+    }
+}
+}

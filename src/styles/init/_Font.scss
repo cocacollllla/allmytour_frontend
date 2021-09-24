@@ -19,6 +19,12 @@
   line-height: 150%;
 }
 
+  @mixin ico{
+      @include  RegularProductName();
+      color: rgb(235, 87, 87);
+      letter-spacing: $ls_8;
+  }
+  
 @mixin MediumbigP {
   font-family: 'SpoqaHanSansNeoMedium';
   font-size: 18px;
@@ -91,3 +97,4 @@
   src: url('../../fonts/SpoqaHanSansNeo_TTF_original/SpoqaHanSansNeo-Thin.ttf')
     format('truetype');
 }
+

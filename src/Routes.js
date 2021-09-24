@@ -8,11 +8,14 @@ import SignupInfo from './pages/Signup/Info/SignupInfo';
 import SignupDone from './pages/Signup/SignupDone';
 import SignupTerms from './pages/Signup/Terms/SignupTerms';
 import Applying from './pages/Applying/Applying';
+import Nav from './component/Nav';
+import Application_complete from './pages/Applying/Application_complete';
 
 class Routes extends React.Component {
   render() {
     return (
       <Router>
+        <Nav />
         <Switch>
           <Route exact path="/signin" component={Signin} />
           <Route exact path="/findpassword" component={FindPassword} />
@@ -22,6 +25,7 @@ class Routes extends React.Component {
           <Route exact path="/signupdone" component={SignupDone} />
           <Route exact path="/signupterms" component={SignupTerms} />
           <Route exact path="/applying" component={Applying} />
+          <Route exact path="/complete" component={Application_complete} />
         </Switch>
       </Router>
     );

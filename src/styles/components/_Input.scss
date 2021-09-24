@@ -2,6 +2,7 @@
 @import '../init/Color.scss';
 @import '../init/Mixin.scss';
 
+
 @mixin input_inner {
   padding: 14px 0 14px 18px;
   border-radius: 10px;
@@ -10,7 +11,7 @@
   height: 54px;
 }
 
-input {
-  width: 100%;
-  margin-top: 8px;
-}
+// input {
+//   width: 100%;
+//   margin-top: 8px;
+// }
