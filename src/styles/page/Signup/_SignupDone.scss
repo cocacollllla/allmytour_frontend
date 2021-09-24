@@ -1,0 +1,21 @@
+.done_wrap {
+  @include wrap_mob;
+
+  .done {
+    padding: 164px 0 355px 12px;
+
+    div {
+      @include boldbigP;
+    }
+
+    p {
+      @include RegularP;
+      margin-top: 48px;
+    }
+  }
+
+  button {
+    @include MediumP;
+    width: 100%;
+  }
+}

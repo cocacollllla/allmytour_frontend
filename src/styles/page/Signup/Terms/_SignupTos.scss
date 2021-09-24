@@ -1,0 +1,97 @@
+.tos_contents {
+  @include wrap_mob;
+  padding-top: 60px;
+
+  .tos_checkbox {
+    margin: 0 10px 0 10px;
+
+    .chx_title {
+      @include flex(row, space-between, center);
+      flex-basis: 100%;
+      margin-left: 17px;
+      cursor: pointer;
+
+      div {
+        @include RegularP;
+        letter-spacing: $ls_8;
+      }
+    }
+
+    .chx_title_age {
+      cursor: default;
+    }
+
+    p {
+      @include boldbigP;
+      letter-spacing: $ls_7;
+      width: 210px;
+      word-break: keep-all;
+    }
+
+    input[type='checkbox'] {
+      /* 체크박스 기존 스타일 없애기 */
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+    }
+
+    svg {
+      cursor: pointer;
+    }
+
+    .chx_on {
+      circle:first-of-type {
+        fill: $button-disabled;
+      }
+      circle:last-of-type {
+        fill: $primary-primary;
+      }
+    }
+
+    .tos_chx_all {
+      @include flex(row, flex-start, center);
+      flex-wrap: wrap;
+      margin: 54px 0 33px 0;
+      padding-bottom: 33px;
+      border-bottom: 1px solid $Grayscale-lighter;
+
+      .chx_all_title {
+        @include MediumP;
+        letter-spacing: $ls_64;
+        margin-left: 17px;
+      }
+
+      p {
+        @include RegularCaption;
+        letter-spacing: $ls_36;
+        width: 230px;
+        margin: 10px 0 0 45px;
+      }
+    }
+
+    .tos_chx {
+      @include flex(row, flex-start, center);
+      margin-bottom: 20px;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  button {
+    @include Oval_button;
+    @include MediumP;
+    letter-spacing: $ls_64;
+    width: 100%;
+    margin-top: 84px;
+    background-color: $primary-primary;
+    letter-spacing: 0.64;
+    cursor: pointer;
+  }
+}

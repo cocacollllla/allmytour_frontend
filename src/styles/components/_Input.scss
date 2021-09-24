@@ -1,9 +1,17 @@
 @import '../init/Font.scss';
+@import '../init/Color.scss';
+@import '../init/Mixin.scss';
 
-@mixin input_inner{
-    padding: 14px 0 14px 18px;
-    border-radius:10px;
-    border: 1px solid rgb(213, 223, 217);
-    @include RegularP();
-    height:54px;
+
+@mixin input_inner {
+  padding: 14px 0 14px 18px;
+  border-radius: 10px;
+  border: 1px solid $border-line;
+  @include RegularP();
+  height: 54px;
 }
+
+// input {
+//   width: 100%;
+//   margin-top: 8px;
+// }

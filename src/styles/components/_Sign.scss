@@ -1,0 +1,58 @@
+.wrap {
+  position: relative;
+  width: 375px;
+  min-height: 812px;
+  margin: 50px auto;
+  padding: 44px 0 34px 0;
+  border: 1px solid $Grayscale-light;
+  overflow: hidden;
+
+  .input_wrap {
+    margin-bottom: 32px;
+
+    &:last-of-type {
+      margin-bottom: 48px;
+    }
+
+    .big_title {
+      @include boldbigP;
+      width: 250px;
+      margin: 59px 0 48px 0;
+      word-break: keep-all;
+      letter-spacing: $ls_7;
+    }
+
+    .input_title {
+      @include RegularsmallP;
+      letter-spacing: $ls_7;
+
+      &:after {
+        content: '*';
+        color: #ff0000;
+        font-size: 16px;
+      }
+    }
+
+    p {
+      @include RegularCaption;
+      margin-top: 3px;
+    }
+
+    .caption {
+      color: $Grayscale-darker;
+      letter-spacing: $ls_36;
+    }
+
+    .input_box {
+      @include flex(row, space-between, center);
+
+      input {
+        width: 220px;
+      }
+    }
+  }
+
+  .sign_btn {
+    width: 100%;
+  }
+}

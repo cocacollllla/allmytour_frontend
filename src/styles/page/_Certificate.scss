@@ -8,19 +8,54 @@
 @import '../../styles/components/_Button.scss';
 
 
-.css-2b097c-container{
-    z-index: 3;
-    @include size (543.7px, 54px);
-    .css-yk16xz-control{
+.certificate_option_wrap {
+   
+    width: calc((100% - 12px)/2);
+    .certificate_option_box{
         @include size (543.7px, 54px);
-    #react-select-3-input{
-        caret-color: transparent;
+        @include letter($ls_8,$Grayscale-middle);
+         @include input_inner;
+        padding-right: 100px;
+        appearance:none;
+        background:url('../../assets/arrow_down.svg') no-repeat 97% 50%/24px auto;
     }
+    .detail_info_wrap{
+    .img_detail_des_1{
+        @include RegularCaption();
+        @include letter($ls_36, $Grayscale-dark);
+        display: flex;
+        margin-top: 16px;
+        padding:0;
+    }
+    .img_detail_des_2{
+        @include RegularCaption();
+        @include letter($ls_36, $Grayscale-dark);
+        display: flex;
 
+    }
 }
-    .css-1okebmr-indicatorSeparator{
-     display: none;
-    }
+    .chosen_certificate_icons{
+        display: flex;
 
-    
+    .chosen_certificate{
+        @include Oval_button;
+        @include padding(8px, 14px, 8px, 18px);
+        @include letter($ls_8,$system-white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: $vertical_icons;
+        margin-right: $horizontal_icons;
+        background-color: $primary-primary ; 
+    }
+}
+
+.file_uploading_wrap{
+    position: relative;
+    margin-top: $vertical_icons;
+    .plus_emoticon{
+        position: absolute;
+    }
+}
 }
