@@ -1,24 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { API } from '../../config';
+import { Link } from 'react-router-dom';
+import Instance from '../../axios';
 import '../../styles/styles.scss';
 
 export const SignupDone = () => {
   const [userName, setUserName] = useState('');
 
   useEffect(() => {
-    axios
-      .get(`${API.USER_NAME}`, {
-        headers: {
-          Authorization: localStorage.getItem('token'),
-        },
-      })
-      .then(res => {
-        setUserName(res.data.result.name);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    Instance.get(`/users/name`).then(response => {
+      setUserName(response.data.result.name);
+    });
   }, []);
 
   return (
@@ -34,7 +25,9 @@ export const SignupDone = () => {
             투어를 이끄는 가이드가 되어보세요
           </p>
         </div>
-        <button className="button1">로컬메이커스 지원하기</button>
+        <Link to="/applying" className="button1 tomakers">
+          로컬메이커스 지원하기
+        </Link>
       </div>
     </div>
   );

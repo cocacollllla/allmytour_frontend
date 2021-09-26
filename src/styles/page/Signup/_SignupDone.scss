@@ -14,8 +14,11 @@
     }
   }
 
-  button {
+  .tomakers {
     @include MediumP;
+    display: block;
     width: 100%;
+    text-align: center;
+    text-decoration: none;
   }
 }

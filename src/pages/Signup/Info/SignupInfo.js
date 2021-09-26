@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import Name from './Name';
 import PhoneNumber from './PhoneNumber';
 import Email from './Email';
 import Password from './Password';
 import Check from '../../../assets/check.svg';
 import Error from '../../../assets/error.svg';
-import { API } from '../../../config';
+import Instance from '../../../axios';
 import '../../../styles/styles.scss';
 
 export const SignupInfo = ({ history }) => {
@@ -14,9 +13,6 @@ export const SignupInfo = ({ history }) => {
   const [checkPhoneCode, setCheckPhoneCode] = useState('');
   const [phoneCodebox, setPhoneCodeBox] = useState(false);
   const [timer, setTimer] = useState(false);
-  const [passwordType, setPasswordType] = useState('password');
-  const [rePasswordType, setRePasswordType] = useState('password');
-
   const [signupForm, setSignupForm] = useState({
     name: '',
     email: '',
@@ -25,14 +21,6 @@ export const SignupInfo = ({ history }) => {
     phone_number: 0,
     phone_code: 0,
   });
-
-  const handleClickPwType = name => {
-    if (name === 'pw') {
-      setPasswordType(passwordType === 'password' ? 'text' : 'password');
-    } else {
-      setRePasswordType(rePasswordType === 'password' ? 'text' : 'password');
-    }
-  };
 
   const handleInput = e => {
     const { value, name } = e.target;
@@ -56,7 +44,7 @@ export const SignupInfo = ({ history }) => {
   const isValidPhone = reg_phone.test(signupForm.phone_number);
 
   let pwdsame;
-  if (signupForm.pw.length >= 1) {
+  if (signupForm.pw.length >= 1 && isValidPw) {
     if (signupForm.pw === signupForm.repw) {
       pwdsame = true;
     }
@@ -70,77 +58,59 @@ export const SignupInfo = ({ history }) => {
 
   const handleClickSignup = e => {
     e.preventDefault();
-    axios
-      .post(`${API.SIGNUP}`, {
-        name: signupForm.name,
-        email: signupForm.email,
-        password: signupForm.pw,
-        phone_number: signupForm.phone_number,
-      })
-      .then(function (response) {
-        if (response.data.MESSAGE === 'SUCCESS') {
-          if (response.data.TOKEN) {
-            localStorage.setItem('token', response.data.TOKEN);
-            history.push('/signupdone');
-          }
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+
+    Instance.post(`/users/signup`, {
+      name: signupForm.name,
+      email: signupForm.email,
+      password: signupForm.pw,
+      phone_number: signupForm.phone_number,
+    }).then(response => {
+      if (response.data.MESSAGE === 'SUCCESS') {
+        localStorage.setItem('token', response.data.TOKEN);
+        history.push('/signupdone');
+      } else if (response.data.MESSAGE === 'PHONE_NUMBER_ALREADY_EXISTS') {
+        alert('이미 가입되어있는 핸드폰 번호입니다.');
+        window.location.replace('/signup');
+      }
+    });
   };
 
   const handleClickEemailCheck = () => {
-    axios
-      .post(`${API.SIGNUP_EMAIL}`, {
-        email: signupForm.email,
-      })
-      .then(function (response) {
-        if (response.data.MESSAGE === 'SUCCESS') {
-          setCheckEmail('success');
-        } else {
-          setCheckEmail('error');
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    Instance.post(`/users/email`, {
+      email: signupForm.email,
+    }).then(response => {
+      if (response.data.MESSAGE === 'SUCCESS') {
+        setCheckEmail('success');
+      } else {
+        setCheckEmail('error');
+      }
+    });
   };
 
   const handleClickGetPhoneCode = () => {
-    axios
-      .post(`${API.SIGNUP_GET_PHONECODE}`, {
-        phone_number: signupForm.phone_number,
-      })
-      .then(function (response) {
-        if (response.data.MESSAGE === 'SUCCESS') {
-          setPhoneCodeBox(true);
-          setTimer(true);
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    Instance.post(`/users/sms`, {
+      phone_number: signupForm.phone_number,
+    }).then(response => {
+      if (response.data.MESSAGE === 'SUCCESS') {
+        setPhoneCodeBox(true);
+        setTimer(true);
+      }
+    });
   };
 
   const handleClickPostPhoneCode = () => {
-    axios
-      .post(`${API.SIGNUP_POST_PHONECODE}`, {
-        phone_number: signupForm.phone_number,
-        auth_number: signupForm.phone_code,
-      })
-      .then(function (response) {
-        if (response.data.MESSAGE === 'SUCCESS') {
-          setCheckPhoneCode('success');
-        } else if (response.data.MESSAGE === 'INVALID_AUTH_NUMBER') {
-          setCheckPhoneCode('invalid');
-        } else if (response.data.MESSAGE === 'EXPIRED_CODE') {
-          setCheckPhoneCode('expired');
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    Instance.post(`/users/sms-verification`, {
+      phone_number: signupForm.phone_number,
+      auth_number: signupForm.phone_code,
+    }).then(response => {
+      if (response.data.MESSAGE === 'SUCCESS') {
+        setCheckPhoneCode('success');
+      } else if (response.data.MESSAGE === 'INVALID_AUTH_NUMBER') {
+        setCheckPhoneCode('invalid');
+      } else if (response.data.MESSAGE === 'EXPIRED_CODE') {
+        setCheckPhoneCode('expired');
+      }
+    });
   };
 
   return (
@@ -169,10 +139,7 @@ export const SignupInfo = ({ history }) => {
         />
         <Password
           handleInput={handleInput}
-          passwordType={passwordType}
-          rePasswordType={rePasswordType}
           signupForm={signupForm}
-          handleClickPwType={handleClickPwType}
           isValidPw={isValidPw}
           check={Check}
           error={Error}

@@ -17,7 +17,7 @@ export const PhoneNumber = ({
   return (
     <div className="input_wrap">
       <div className="input_title">휴대폰</div>
-      <div className="input_box">
+      <div className="input_btn_box">
         <input
           type="number"
           placeholder="휴대폰 번호를 입력해주세요"

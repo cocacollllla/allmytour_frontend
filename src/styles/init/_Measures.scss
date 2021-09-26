@@ -27,7 +27,6 @@
   letter-spacing: $spacing;
   color: $color;
 }
-
 @mixin margin($top, $right, $bottom, $left) {
   margin-top: $top;
   margin-right: $right;

@@ -65,7 +65,7 @@ export const PhoneCode = ({
 
   return (
     <>
-      <div className="input_box">
+      <div className="input_btn_box">
         <div className="input_timer">
           <input
             type="number"

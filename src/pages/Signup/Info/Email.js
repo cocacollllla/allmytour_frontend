@@ -35,7 +35,7 @@ export const Email = ({
         비밀번호 분실시, 사용될 이메일입니다. <br />
         실제 사용가능한 이메일로 설정해주세요
       </p>
-      <div className="input_box">
+      <div className="input_btn_box">
         <input
           type="text"
           name="email"

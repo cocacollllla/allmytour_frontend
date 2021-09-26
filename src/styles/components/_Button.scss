@@ -18,7 +18,6 @@
   @include RegularP;
   letter-spacing: $ls_8;
   width: 105px;
-  margin-top: 8px;
   cursor: pointer;
 }
 
@@ -34,7 +33,6 @@
 .success_btn {
   @include RegularP;
   width: 105px;
-  margin-top: 8px;
   background-color: $primary-primary;
   color: $system-white;
 }
