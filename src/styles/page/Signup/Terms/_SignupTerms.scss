@@ -1,0 +1,45 @@
+.signup_terms {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 44px 0 34px 0;
+  background-color: $system-white;
+
+  .terms_contents {
+    @include wrap_mob;
+    height: 97%;
+    overflow-y: auto;
+
+    div {
+      @include RegularP;
+      margin-top: 30px;
+      letter-spacing: $ls_8;
+      white-space: pre-line;
+    }
+
+    button {
+      @include Oval_button;
+      @include MediumP;
+      position: absolute;
+      bottom: 34px;
+      z-index: 9;
+      display: block;
+      width: 90%;
+      background-color: $primary-primary;
+      text-align: center;
+      letter-spacing: $ls_64;
+      cursor: pointer;
+    }
+  }
+
+  .gradient_box {
+    position: absolute;
+    left: 0;
+    right: 20px;
+    bottom: 0;
+    height: 90px;
+    background: linear-gradient(transparent, white 80%);
+  }
+}

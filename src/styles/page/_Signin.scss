@@ -1,0 +1,90 @@
+.signin_info_wrap {
+  @include wrap_mob;
+
+  .login_logo {
+    display: block;
+    margin: 74px auto 60px auto;
+  }
+
+  // .input_box {
+  //   input {
+  //     margin-bottom: 8px;
+  //   }
+  // }
+
+  .login_state {
+    height: 28px;
+    margin-top: 16px;
+
+    input[type='checkbox'] {
+      /* 체크박스 기존 스타일 없애기 */
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+    }
+
+    label {
+      @include flex(row, flex-start, center);
+      color: $Grayscale-dark;
+      line-height: 29px;
+      letter-spacing: $ls_8;
+
+      svg {
+        margin-right: 13px;
+        cursor: pointer;
+      }
+
+      .chx_on {
+        circle:first-of-type {
+          fill: $button-disabled;
+        }
+        circle:last-of-type {
+          fill: $primary-primary;
+        }
+      }
+
+      span {
+        letter-spacing: $ls_8;
+        @include RegularP;
+      }
+    }
+  }
+
+  .sign_btn {
+    margin-top: 24px;
+  }
+
+  .find_join {
+    @include flex(row, space-between, center);
+    width: 160px;
+    margin: 25px auto 0 auto;
+
+    .findpw {
+      @include RegularsmallP;
+      letter-spacing: $ls_7;
+      color: $Grayscale-dark;
+      text-decoration: none;
+
+      &:last-child {
+        @include MediumsmallP;
+        position: relative;
+        color: $primary-primary;
+
+        &:after {
+          content: '';
+          display: inline-block;
+          position: absolute;
+          right: 67px;
+          width: 1px;
+          height: 20px;
+          background-color: $border-line;
+        }
+      }
+    }
+  }
+}

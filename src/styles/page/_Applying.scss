@@ -47,6 +47,7 @@
                border-color: transparent;
             border-style: $primary-Light;
             outline: 0;
+            box-shadow: 0 0 0 0;
            }
         }
        }
@@ -57,6 +58,7 @@
            &:focus {
             border-color:$system-black;
             outline: none;
+            box-shadow: 0 0 0 0;
         }
        }
     }
@@ -78,14 +80,13 @@
                 @include ico();
             }
         }
-       .maker_name_input{
+       .maker_name_input{  
             @include input_inner();
             @include letter($ls_8,$Grayscale-middle);
             width: calc((100% - 12px)/2);
+           &:disabled{}
        }
-       .maker_name_input_used{
-        color:$Grayscale-darker;
-       }
+
    }
    .maker_nickname_wrap{
        padding-top:$vertical_section;
@@ -127,7 +128,7 @@
                 @include ico();
             }
         }
-        .career_textarea{
+        .career_textarea_space{
             @include RegularP();
             @include size (544px, 150px);
             @include margin(0, 0, 0, 402.9px); 
@@ -137,8 +138,8 @@
             border: 1px solid $border-line;
             resize: none;
         }
-        .career_used{
-            color:$Grayscale-darker;
+        .career_used_input{
+           color:$Grayscale-darker;
             @include size (544px, 150px);
             padding: 14px 0 14px 18px;
             border-radius:10px;
@@ -149,10 +150,10 @@
                     outline: none;
                     box-shadow: 0 0 0 1px $primary-primary;
                 }
-             &:disabled{
-                background-color: $Grayscale-lighter;
-                cursor: default;
-                }
+            //  &:disabled{
+            //     background-color: $Grayscale-lighter;
+            //     cursor: default;
+            //     }
         }
     }
 
@@ -268,7 +269,7 @@
 
                 .filled_out_ig_input {
                     @include size (543.7px, 54px);
-                    padding-left:210px;
+                    padding-left:212px;
                     margin-bottom: $vertical_icons;
                     position: absolute;
                     top:-1px;
@@ -278,7 +279,7 @@
             }
             .filled_out_fb_input{
                 @include size (543.7px, 54px);
-                padding-left:206px;
+                padding-left:208px;
                 margin-bottom: $vertical_icons;
                 position: absolute;
                 top:-1px;
@@ -287,7 +288,7 @@
         }
         .filled_out_yt_input {
             @include size (543.7px, 54px);
-            padding-left:201px;
+            padding-left:202px;
             margin-bottom: $vertical_icons;
             position: absolute;
             top:-1px;

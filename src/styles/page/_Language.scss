@@ -31,21 +31,9 @@
     }
     .chosen_language_wrap{
         display: flex;
-
-        .active_chosen_language_category{
-          margin-bottom: 30px;
-        } 
-        // margin-bottom:$vertical_section;
         
     .chosen_language_category{
         top: 100px;
-
-      
-
-        .others{
-            display: flex;
-       flex-direction: column;
-        }
         .chosen_language{
             display: flex;
             align-items: center;
@@ -69,7 +57,10 @@
         }
     }
     }
-
+    .submitted_language_wrap1{
+        margin-top: $vertical_icons;
+        .submitted_language1{}
+    }
 
 }
 }

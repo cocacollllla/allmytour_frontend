@@ -1,0 +1,65 @@
+@keyframes tabSlide {
+  from {
+    left: 20%;
+  }
+  to {
+    left: 70%;
+  }
+}
+
+.title_wrap {
+  position: relative;
+  min-height: 57px;
+  box-shadow: 0 3px 4px -2px $Grayscale-lighter;
+
+  img {
+    position: absolute;
+    top: 7px;
+    left: 0;
+  }
+
+  .signup_title {
+    @include MediumP;
+    letter-spacing: $ls_64;
+    line-height: 57px;
+    text-align: center;
+  }
+
+  .signup_tab_btns {
+    @include flex(row, space-between, center);
+    position: relative;
+    padding: 13px 65px 10px 65px;
+    text-align: center;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 20%;
+      bottom: 0;
+      display: block;
+      width: 39px;
+      height: 3px;
+      margin: 7px auto 0 auto;
+      background-color: $primary-primary;
+    }
+
+    .tabOn {
+      @include MediumP;
+      letter-spacing: $ls_64;
+    }
+
+    .tabOff {
+      @include MediumP;
+      color: $Grayscale-middle;
+      letter-spacing: $ls_64;
+    }
+  }
+  .button_active {
+    &:after {
+      content: '';
+      position: absolute;
+      left: 70%;
+      animation: tabSlide 0.3s ease;
+    }
+  }
+}

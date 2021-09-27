@@ -7,91 +7,91 @@
 @import '../../styles/components/_Input.scss';
 @import '../../styles/components/_Button.scss';
 
-
-.profile_image_wrap{
-    padding-top:$vertical_section;
-       display: flex;
-       .category_profile_image{
-        @include left_padding_web();
-        width: calc((100% - 12px)/2);
-        margin-right:176.3px;
-           .profile_image{
-            @include size (initial, 26px);
-            @include letter($ls_8, $system-black);
-            @include RegularP();
-            .ico {
-                @include ico();
-               }
-           }
-           .image_desc{
-            @include RegularCaption();
-            @include letter($ls_36, $Grayscale-dark);
-            width:310px;
-            font-size: 12px;
-           }
-       }
-       .image_category_wrap{
-        width: calc((100% - 12px)/2);
-        display: flex;
-        .preview_image{
-            @include size (157.3px, 155.2px);
-            position: relative;
-            border-radius:131px;
-            border: 1px solid $border-line;
-            .camera_image{
-                position: absolute;
-                left:58.4px;
-                bottom:58.7px;
-            }
-            .maker_profile_preview{
-                border-radius:131px;
-                max-width: 100%;
-                min-height: 100%;
-                max-height: 100%;
-            }
-        }
-        .button_whole_wrap{
-            padding-left:19.2px;
-
-            #attatched_img_info_wrap{
-                @include size (367px, 54px);
-                @include RegularP();
-                @include letter($ls_8,$system-white);
-                max-width: 100%;
-                max-height: 100%;
-                padding:8px 18px;
-                .attached_img_info{
-                    flex-wrap: wrap;
-                    display: flex;
-                    justify-content: space-between;
-                .btn_left, .btn_right{
-                    display: flex;
-                    align-items: center;
-                    .maker_img, .img_name{
-                        display:  inline-block;
-                    }
-                    .img_size, .trash_img{
-                        display: inline-block;
-                    }
-                
-                }
-            }
-        }
-            
-
-            .img_detail_des_1{
-                @include RegularCaption();
-                @include letter($ls_36, $Grayscale-dark);
-                display: flex;
-                margin-top: 16px;
-                padding:0;
-            }
-            .img_detail_des_2{
-                @include RegularCaption();
-                @include letter($ls_36, $Grayscale-dark);
-                display: flex;
-
-            }
-        }
+.profile_image_wrap {
+  padding-top: $vertical_section;
+  display: flex;
+  .category_profile_image {
+    @include left_padding_web();
+    width: calc((100% - 12px) / 2);
+    margin-right: 176.3px;
+    .profile_image {
+      @include size(initial, 26px);
+      @include letter($ls_8, $system-black);
+      @include RegularP();
+      .ico {
+        @include ico();
+      }
     }
-   }
+    .image_desc {
+      @include RegularCaption();
+      @include letter($ls_36, $Grayscale-dark);
+      width: 310px;
+      font-size: 12px;
+    }
+  }
+  .image_category_wrap {
+    width: calc((100% - 12px) / 2);
+    display: flex;
+    .preview_image {
+      @include size(157.3px, 155.2px);
+      position: relative;
+      border-radius: 131px;
+      border: 1px solid $border-line;
+      .camera_image {
+        position: absolute;
+        left: 58.4px;
+        bottom: 58.7px;
+      }
+      .maker_profile_preview {
+        border-radius: 131px;
+        max-width: 100%;
+        min-height: 100%;
+        max-height: 100%;
+      }
+    }
+    .button_whole_wrap {
+      padding-left: 19.2px;
+
+      #attatched_img_info_wrap {
+        @include size(367px, 54px);
+        @include RegularP();
+        @include letter($ls_8, $system-white);
+        max-width: 100%;
+        max-height: 100%;
+        padding: 8px 18px;
+        .attached_img_info {
+          flex-wrap: wrap;
+          display: flex;
+          justify-content: space-between;
+          .btn_left,
+          .btn_right {
+            display: flex;
+            align-items: center;
+            .maker_img,
+            .img_name {
+              display: inline-block;
+            }
+            .img_size,
+            .trash_img {
+              display: inline-block;
+            }
+          }
+        }
+      }
+
+      .img_detail_des_1 {
+        @include RegularCaption();
+        @include letter($ls_36, $Grayscale-dark);
+        display: flex;
+        margin-top: 16px;
+        padding: 0;
+      }
+      .img_detail_des_2 {
+        @include RegularCaption();
+        @include letter($ls_36, $Grayscale-dark);
+        display: flex;
+      }
+    }
+  }
+}
+

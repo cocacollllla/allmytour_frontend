@@ -5,50 +5,52 @@
   @mixin MainHeader{
     padding: 0 170.5px 10.6px 170px;
   }
-  
-  @mixin size ($width, $height){
-    width: $width;
-    height: $height;
-  }
 
-  @mixin wrap_mob {
-    padding: 0 5%;
-  }
 
-  @mixin letter($spacing, $color) {
-    letter-spacing:$spacing;
-    color: $color;
-  }
-    
-  @mixin margin($top, $right,$bottom,$left){
-    margin-top: $top;
-    margin-right: $right;
-    margin-bottom:$bottom ;
-    margin-left: $left;
-  }
-
-  @mixin padding($top, $right,$bottom,$left){
-    padding-top: $top;
-    padding-right: $right;
-    padding-bottom:$bottom;
-    padding-left: $left;
-  }
-
-@mixin left_padding_web{
-  padding-left:70px;
+@mixin MainHeader {
+  padding: 0 170.5px 10.6px 170px;
 }
 
-@mixin between_contents_right{
+@mixin left_padding_web {
+  padding-left: 70px;
+}
+
+@mixin between_contents_right {
   margin-right: 12px;
 }
 
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
 
-$ls_36:-0.36px;
-$ls_64:-0.64px;
-$ls_7:-0.7px;
-$ls_8:-0.8px;
-$ls_96:-0.96px;
-$ls_56:-0.56px;
+@mixin wrap_mob {
+  padding: 0 5%;
+}
+
+@mixin letter($spacing, $color) {
+  letter-spacing: $spacing;
+  color: $color;
+}
+@mixin margin($top, $right, $bottom, $left) {
+  margin-top: $top;
+  margin-right: $right;
+  margin-bottom: $bottom;
+  margin-left: $left;
+}
+@mixin padding($top, $right, $bottom, $left) {
+  padding-top: $top;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-left: $left;
+}
+
+$ls_36: -0.36px;
+$ls_64: -0.64px;
+$ls_7: -0.7px;
+$ls_8: -0.8px;
+$ls_96: -0.96px;
+$ls_56: -0.56px;
 
 
 $vertical_section: 64px;

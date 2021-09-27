@@ -1,0 +1,10 @@
+.input_timer {
+  position: relative;
+
+  .code_time {
+    @include RegularsmallP;
+    position: absolute;
+    top: 15px;
+    right: 6px;
+  }
+}

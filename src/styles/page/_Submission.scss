@@ -1,0 +1,376 @@
+@import '../../styles/init/_Common.scss';
+@import '../../styles/init/_Mixin.scss';
+@import '../../styles/init/_Reset.scss';
+@import '../../styles/init/_Color.scss';
+@import '../../styles/init/_Font.scss';
+@import '../../styles/init/_Measures.scss';
+@import '../../styles/components/_Input.scss';
+@import '../../styles/components/_Button.scss';
+
+.applying_page_whole_wrap{
+    margin: 0 auto;
+
+   
+   .application_tabs{
+       width: 100%;
+       box-shadow: 0 2px 5px 0px rgba(182, 182, 182, 0.13);
+       @include margin(31.8px, initial, $vertical_section,0);
+        height: 64.6px;
+        text-align: center;
+        .taps_wrap{
+            display: flex;
+            width: 1100px;
+            margin: 0 auto;
+            .applgying_category{
+                @include between_contents_right;
+            width: calc((100% - 12px)/2);
+            display: flex;
+                .arrow_mark{
+                @include size (44px, 44px);
+                @include margin(10px, 0,0,0);
+                }
+                .applying_makers{
+                @include RegularP();
+                @include letter($ls_64,$system-black);
+                padding-left: 27.8px;
+                line-height:64.6px;
+                }
+            }
+
+    .applying_button_category{
+        width: calc((100% - 12px)/2);}
+        display: flex;
+        #auto_save_btn{
+           @include size (264.3px, 54px);
+           margin-right: $horizontal_icons;
+        }
+       }
+       #hand_in_btn{
+           @include RegularP();
+           @include Oval_button();
+           @include size (264.3px, 54px);
+        
+       }
+    }
+   
+  }
+   
+   .contents{
+    width:1100px;
+        margin: 0 auto;
+       .maker_name_wrap{
+        .maker_name{
+            @include RegularP();
+            @include between_contents_right();
+            @include letter($ls_64, $system-black);
+            @include left_padding_web();
+            display: inline-block;
+            width: calc((100% - 12px)/2);
+            .ico {
+                @include ico();
+            }
+        }
+       .maker_name_input{  
+            @include input_inner();
+            @include letter($ls_8,$Grayscale-middle);
+            width: calc((100% - 12px)/2);
+           &:disabled{}
+       }
+
+   }
+   .maker_nickname_wrap{
+       padding-top:$vertical_section;
+       .maker_nickname{
+        @include between_contents_right();
+        @include RegularP();
+        @include letter($ls_8, $system-black);
+        @include left_padding_web();
+           display: inline-block;
+           width: calc((100% - 12px)/2);
+           .ico {
+            @include ico();
+           }
+       }
+       .maker_nickname_input{
+        @include size (543.7px, 54px);
+        @include input_inner();
+        @include letter($ls_8,$Grayscale-middle);
+        width: calc((100% - 12px)/2);
+       }
+        .maker_nickname_input_used{
+            color:$Grayscale-darker;
+      }
+
+       
+   }
+
+    
+   .profile_image_wrap{
+    padding-top:$vertical_section;
+       display: flex;
+       .category_submitted_profile_image{
+        @include left_padding_web();
+        width: calc((100% - 12px)/2);
+   
+           .profile_image{
+            @include size (initial, 26px);
+            @include letter($ls_8, $system-black);
+            @include RegularP();
+            .ico {
+                @include ico();
+               }
+           }
+       }
+       .image_category_wrap{
+        width: calc((100% - 12px)/2);
+        display: flex;
+        .preview_image{
+            @include size (157.3px, 155.2px);
+            position: relative;
+            border-radius:131px;
+            border: 1px solid $border-line;
+            .camera_image{
+                position: absolute;
+                left:58.4px;
+                bottom:58.7px;
+            }
+            .selected_profile_preview{
+                border-radius:131px;
+                max-width: 100%;
+                min-height: 100%;
+                max-height: 100%;
+            }
+        }
+    }
+   }
+
+
+   .maker_profile{
+    @include left_padding_web();
+    padding-top:$vertical_section; 
+    display: flex;
+    margin-bottom: 64px;
+    height: 150px;
+     .introduction{
+        @include RegularP();
+        @include letter($ls_8,$system-black);
+        padding-top: 0;
+         .ico{
+                @include ico();
+            }
+        }
+        .submitted_career_textarea{
+            @include RegularP();
+            @include size (544px, 150px);
+            @include margin(0, 0, 0, 402.9px); 
+            @include letter($ls_8,$Grayscale-middle);
+            padding: 14px 0 14px 18px;
+            border-radius:10px;
+            border: 1px solid $border-line;
+            resize: none;
+        
+            &:disabled{
+                background-color: $Grayscale-lighter;
+                cursor: default;
+                color: $Grayscale-middle;
+                }
+            }
+        }
+    }
+
+    .certificate_wrap{
+        display: flex;
+        padding-top:$vertical_section; 
+        .attaching_certificate{
+            @include left_padding_web();
+            @include between_contents_right;
+            width: calc((100% - 12px)/2);
+            .documents_title{
+                @include size (initial, 26px);
+                @include letter($ls_8, $system-black);
+                @include RegularP();
+                display: inline-block;
+                padding-right: 3px;}
+            .certificate_des_1{
+                @include RegularCaption();
+                @include letter($ls_36, $Grayscale-dark);
+                .ico{
+                    @include ico();
+                }
+            }
+            .img_wrap{ 
+                display: inline-block;
+            }
+        }
+        .submitted_certificate_icons{
+            display: flex;
+            .submitted_certificate{
+                @include Oval_button;
+                @include padding(8px, 14px, 8px, 18px);
+                @include letter($ls_8,$system-white);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                margin-top: $vertical_icons;
+                margin-right: $horizontal_icons;
+                background-color: $primary-primary ; 
+                height:42px;
+            }
+        }
+    }
+    .user_sns_wrap{
+        padding-top:$vertical_section; 
+        display: flex;
+
+        .category_hp_or_sns{        
+            @include left_padding_web();
+            @include between_contents_right();
+            width: calc((100% - 12px)/2);}
+        .title_sns{
+            
+         @include RegularP();
+            .ico {
+             @include ico();
+            }
+        }
+        .sns_inputs{
+            width: calc((100% - 12px)/2);
+             display: flex;
+            flex-direction: column;
+            .ig_label, .fb_label, .yt_label{
+                display: flex;
+                position: relative;
+                @include input_inner();
+                @include size (543.7px, 54px);
+                margin-bottom: $vertical_icons;
+            
+                .instagram_input, .facebook_input, .youtube_input{
+                    @include input_inner();
+                    @include size (211.7px, 54px);
+                    @include letter($ls_8,$Grayscale-middle);
+                    position: absolute;
+                    margin-bottom: $vertical_icons;
+                    top:-1px;
+                    left:-1px;
+                    z-index: 3;
+                    border-top-right-radius:0  ;
+                    border-bottom-right-radius: 0;
+                    border-right: transparent;
+                    pointer-events: none;
+                    position: absolute;
+                    margin-bottom: $vertical_icons;
+                    color:$Grayscale-darker;
+                    
+                }
+                .facebook_input{
+                    @include size (207.8px, 54px); 
+                }
+                .youtube_input
+                {
+                    @include size (203.8px, 54px); 
+                }
+
+
+                
+
+                .submitted_ig_input {
+                    @include size (543.7px, 54px);
+                    padding-left:212px;
+                    margin-bottom: $vertical_icons;
+                    position: absolute;
+                    top:-1px;
+                    left:-1px;
+            }
+            .submitted_fb_input{
+                @include size (543.7px, 54px);
+                padding-left:208px;
+                margin-bottom: $vertical_icons;
+                position: absolute;
+                top:-1px;
+                left:-1px;
+        }
+        .submitted_yt_input {
+            @include size (543.7px, 54px);
+            padding-left:202px;
+            margin-bottom: $vertical_icons;
+            position: absolute;
+            top:-1px;
+            left:-1px;    
+    }
+        }
+            }
+         
+        }
+    
+    .available_language_wrap{
+        display: flex;
+        padding-top:$vertical_section; 
+        .language_category{
+            @include left_padding_web;
+            @include between_contents_right;
+            width: calc((100% - 12px)/2);
+            .language_title{
+                @include size (initial, 26px);
+                @include letter($ls_8, $system-black);
+                @include RegularP();
+                display: inline-block;
+                padding-right: 3px;}
+            .language_des_1{
+                @include RegularCaption();
+                @include letter($ls_36, $Grayscale-dark);
+                width:310px;
+
+                .ico{
+                    @include ico();
+                }
+            }
+        }
+        .chosen_language_wrap{
+            display: flex;
+            .chosen_language{  
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include Oval_button;
+            @include padding(8px, 14px, 8px, 18px);
+            @include letter($ls_8,$system-white);
+            margin-right: $horizontal_icons;
+            height:42px;
+            background-color: $primary-primary ; 
+            }
+        }
+.idcard_image_wrap{
+    padding-top:$vertical_section; 
+    @include margin(0, 0, 100px,0);
+    display: flex;
+    .idcard_category{
+        @include left_padding_web;
+        @include between_contents_right;
+        width: calc((100% - 12px)/2);
+        .idcard_title{
+            @include size (initial, 26px);
+            @include letter($ls_8, $system-black);
+            @include RegularP();
+            .ico {
+                @include ico();
+               }
+        }
+    }
+.uploading_id_category{
+    width: calc((100% - 12px)/2);
+    display: flex;
+    .preview_id_image{
+        @include size (157.3px, 155.2px);
+        position: relative;
+        border-radius:10px;
+        border: 1px solid $border-line;
+        max-width: 100%;
+                min-height: 100%;
+                max-height: 100%;
+    }
+}
+
+}
+
+    }

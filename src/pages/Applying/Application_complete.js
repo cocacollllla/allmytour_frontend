@@ -1,7 +1,14 @@
-import React from 'react';
+import { useHistory } from 'react-router-dom';
 import '../../styles/styles.scss';
+import React, { useEffect, useState, useRef } from 'react';
 
 const Application_complete = () => {
+  const history = useHistory();
+
+  const goToSubmission = e => {
+    history.push('/submission');
+  };
+
   return (
     <div className="applying_success_wrap">
       <div className="applying_sucess_category">
@@ -42,7 +49,12 @@ const Application_complete = () => {
             </div>
           </div>
         </main>
-        <button className="button1">메이커스 심사 상태 확인하기</button>
+        <button id="staus_checking" className="button1">
+          메이커스 심사 상태 확인하기
+        </button>
+        <button id="go_to_main" className="button1" onClick={goToSubmission}>
+          제출한 서류 보기
+        </button>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../../../styles/page/_Language.scss';
 import Delete from '../../../assets/delete.svg';
+
 export default function Language() {
   return (
     <div className="chosen_language_wrap">

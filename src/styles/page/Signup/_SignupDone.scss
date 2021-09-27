@@ -1,0 +1,24 @@
+.done_wrap {
+  @include wrap_mob;
+
+  .done {
+    padding: 164px 0 355px 12px;
+
+    div {
+      @include boldbigP;
+    }
+
+    p {
+      @include RegularP;
+      margin-top: 48px;
+    }
+  }
+
+  .tomakers {
+    @include MediumP;
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+  }
+}
