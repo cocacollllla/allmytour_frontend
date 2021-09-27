@@ -2,8 +2,9 @@
   position: relative;
 
   .code_time {
+    @include RegularsmallP;
     position: absolute;
-    top: 24px;
-    right: 10px;
+    top: 15px;
+    right: 6px;
   }
 }

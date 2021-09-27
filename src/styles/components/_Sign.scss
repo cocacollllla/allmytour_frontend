@@ -42,14 +42,6 @@
       color: $Grayscale-darker;
       letter-spacing: $ls_36;
     }
-
-    .input_box {
-      @include flex(row, space-between, center);
-
-      input {
-        width: 220px;
-      }
-    }
   }
 
   .sign_btn {

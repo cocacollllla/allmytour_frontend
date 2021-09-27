@@ -1,22 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import SignTitle from '../../component/SignTitle';
 import LoginLogo from '../../assets/logo_login.svg';
 import { ReactComponent as RadioBtn } from '../../assets/radio_none.svg';
-import { API } from '../../config';
+import Instance from '../../axios';
 import '../../styles/styles.scss';
 
-export const Signin = () => {
+export const Signin = ({ history }) => {
   const [isCheck, setIsCheck] = useState(false);
   const [signinForm, setSigninForm] = useState({
     email: '',
     password: '',
   });
-
-  useEffect(() => {
-    localStorage.removeItem('token');
-  }, []);
 
   const handleLoginStateCheck = () => {
     setIsCheck(!isCheck);
@@ -32,28 +27,23 @@ export const Signin = () => {
 
   const handleClickSignin = e => {
     e.preventDefault();
-    axios
-      .post(`${API.SIGNIN}`, {
-        email: signinForm.email,
-        password: signinForm.password,
-      })
-      .then(function (response) {
-        if (response.data.MESSAGE === 'SUCCESS') {
-          if (response.data.TOKEN) {
-            alert('로그인 완료');
-            if (isCheck) {
-              localStorage.setItem('token', response.data.TOKEN);
-            } else {
-              sessionStorage.setItem('token', response.data.TOKEN);
-            }
-          }
-        } else if (response.data.MESSAGE === 'INVALID_USER') {
-          alert('아이디 또는 비밀번호가 일치하지 않습니다.');
+
+    Instance.post(`/users/signin`, {
+      email: signinForm.email,
+      password: signinForm.password,
+    }).then(response => {
+      if (response.data.MESSAGE === 'SUCCESS') {
+        alert('로그인 완료');
+        history.push('/');
+        if (isCheck) {
+          localStorage.setItem('token', response.data.TOKEN);
+        } else {
+          sessionStorage.setItem('token', response.data.TOKEN);
         }
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+      } else if (response.data.MESSAGE === 'INVALID_USER') {
+        alert('아이디 또는 비밀번호가 일치하지 않습니다.');
+      }
+    });
   };
 
   const reg_email =

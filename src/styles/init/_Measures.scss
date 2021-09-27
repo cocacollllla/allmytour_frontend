@@ -1,16 +1,16 @@
 @mixin MainSize {
-    padding: 100px 177.2px 0 233px;
-  }
-
-  @mixin MainHeader{
-    padding: 0 170.5px 10.6px 170px;
-  }
-  
-@mixin left_padding_web{
-  padding-left:70px;
+  padding: 100px 177.2px 0 233px;
 }
 
-@mixin between_contents_right{
+@mixin MainHeader {
+  padding: 0 170.5px 10.6px 170px;
+}
+
+@mixin left_padding_web {
+  padding-left: 70px;
+}
+
+@mixin between_contents_right {
   margin-right: 12px;
 }
 
@@ -27,25 +27,25 @@
   letter-spacing: $spacing;
   color: $color;
 }
-@mixin margin($top, $left, $bottom, $left) {
+@mixin margin($top, $right, $bottom, $left) {
   margin-top: $top;
-  margin-right: $left;
+  margin-right: $right;
   margin-bottom: $bottom;
   margin-left: $left;
 }
-@mixin padding($top, $left, $bottom, $left) {
+@mixin padding($top, $right, $bottom, $left) {
   padding-top: $top;
-  margin-right: $left;
-  margin-bottom: $bottom;
-  margin-left: $left;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-left: $left;
 }
 
 $ls_36: -0.36px;
 $ls_64: -0.64px;
 $ls_7: -0.7px;
 $ls_8: -0.8px;
-$ls_96:-0.96px;
-$ls_56:-0.56px;
+$ls_96: -0.96px;
+$ls_56: -0.56px;
 
 $vertical_section: 64px;
 $vertical_icons: 12px;

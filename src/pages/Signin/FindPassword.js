@@ -1,43 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import SignTitle from '../../component/SignTitle';
 import ResultText from '../../component/ResultText';
 import Check from '../../assets/check.svg';
 import Error from '../../assets/error.svg';
-import { API } from '../../config';
+import Instance from '../../axios';
 import '../../styles/styles.scss';
 
 export const FindPassword = () => {
   const [sendEmail, setSendEmail] = useState('');
   const [checkBtn, setCheckBtn] = useState('');
 
-  useEffect(() => {
-    localStorage.removeItem('token');
-  }, []);
-
   const handleChangeEmail = e => {
     setSendEmail(e.target.value);
   };
 
   const handleClickSendEmail = e => {
-    console.log('zzz');
     e.preventDefault();
-    axios
-      .post(`${API.FIND_PASSWORD}`, {
-        email: sendEmail,
-      })
-      .then(function (response) {
-        console.log(response);
-        if (response.data.MESSAGE === 'EMAIL_SENDED') {
-          setCheckBtn('success');
-          localStorage.setItem('token', response.data.TOKEN);
-        } else if (response.data.MESSAGE === 'EMAIL_DOSENT_EXIST') {
-          setCheckBtn('email_dosent_exist');
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+
+    Instance.post(`/users/reset`, {
+      email: sendEmail,
+    }).then(response => {
+      if (response.data.MESSAGE === 'EMAIL_SENDED') {
+        setCheckBtn('success');
+      } else if (response.data.MESSAGE === 'EMAIL_DOSENT_EXIST') {
+        setCheckBtn('email_dosent_exist');
+      }
+    });
   };
 
   const emailResult = () => {
@@ -79,7 +67,7 @@ export const FindPassword = () => {
             이메일 인증을 진행합니다.
           </p>
           <div className="input_title">아이디(이메일)</div>
-          <div className="input_box">
+          <div className="input_btn_box">
             <input
               type="text"
               name="email"
