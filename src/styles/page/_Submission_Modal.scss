@@ -1,0 +1,67 @@
+@import '../../styles/init/_Common.scss';
+@import '../../styles/init/_Mixin.scss';
+@import '../../styles/init/_Reset.scss';
+@import '../../styles/init/_Color.scss';
+@import '../../styles/init/_Font.scss';
+@import '../../styles/init/_Measures.scss';
+@import '../../styles/components/_Input.scss';
+@import '../../styles/components/_Button.scss';
+
+.confirm_modal_bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(33, 33, 33, 0.3);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    z-index: 9999999;
+    .confirm_modal {
+      position: absolute;
+      width: 310px;
+      height: 185px;
+      top: 50%;
+      margin-top: -90px;
+      left: 50%;
+      margin-left: -155px;
+      background-color: $system-white;
+      border-radius: 10px; 
+      .submission_des_wrap{
+        .submission_alert_msg{
+          @include RegularP; 
+          @include letter($ls_64,$system-black);
+          padding-top: 40px;
+          text-align: center;
+          line-height: 22px;}
+        .submission_alert_msg2{
+          @include RegularCaption;
+          @include letter($ls_36,$Grayscale-dark);
+          padding-bottom:60px;
+          text-align: center;
+          line-height: 22px;}
+        }
+      
+      .button_box {
+        @include flex(row, space-between, flex-start);
+        button {
+          width: 50%;
+          height: 62px;
+          border: none;
+          background-color: $system-white;
+          border-top: 1px solid #E5E9F4;
+          color: $Grayscale-darker;
+          @include MediumP;
+          &:first-child {
+            border-bottom-left-radius: 10px;
+            border-right: 1px solid #E5E9F4;
+          }
+          &:last-child {
+            border-bottom-right-radius: 10px;
+            color: $primary-primary
+          }
+        }
+      }
+    }
+  }
+    

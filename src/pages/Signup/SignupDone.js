@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Instance from '../../axios';
 import '../../styles/styles.scss';
 
-export const SignupDone = () => {
+export const SignupDone = ({ history }) => {
   const [userName, setUserName] = useState('');
 
   useEffect(() => {
@@ -11,6 +11,11 @@ export const SignupDone = () => {
       setUserName(response.data.result.name);
     });
   }, []);
+
+  const toApplying = () => {
+    history.push('/applying');
+    window.location.reload();
+  };
 
   return (
     <div className="wrap">
@@ -25,9 +30,13 @@ export const SignupDone = () => {
             투어를 이끄는 가이드가 되어보세요
           </p>
         </div>
-        <Link to="/applying" className="button1 tomakers">
+        <button
+          to="/applying"
+          className="button1 tomakers"
+          onClick={toApplying}
+        >
           로컬메이커스 지원하기
-        </Link>
+        </button>
       </div>
     </div>
   );

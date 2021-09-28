@@ -50,6 +50,7 @@
 
       span {
         letter-spacing: $ls_8;
+        @include RegularP;
       }
     }
   }

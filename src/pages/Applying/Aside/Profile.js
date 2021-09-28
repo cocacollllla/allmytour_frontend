@@ -4,19 +4,16 @@ import Camera from '../../../assets/camera.svg';
 import Trash from '../../../assets/trash.svg';
 import Dot from '../../../assets/dot.svg';
 import File from '../../../assets/file.svg';
-import axios from 'axios';
-import { ReactDOM } from 'react';
 
-export default function Profile({ imgFile, setImgFile }) {
+export default function Profile({ test, imgFile, setImgFile }) {
   const buttonRef = useRef(null);
   const [fileName, setFileName] = useState(null);
   const [fileSize, setFileSize] = useState(null);
   const [imgBase64, setImgBase64] = useState('');
   const [fileTest, setFileTest] = useState(null); // 미리보기를 구현하기 위해서 이미지 데이터를 받을 스테이트
-  // const [imgFile, setImgFile] = useState(null); // 이미지 파일 그 자체를 받을 스테이트
 
   var bodyFormDatas = new FormData();
-  bodyFormDatas.append('profile_image', fileTest);
+  bodyFormDatas.append('profile_image', imgFile);
 
   const imgChangedHandler = e => {
     e.preventDefault();
@@ -46,23 +43,6 @@ export default function Profile({ imgFile, setImgFile }) {
       // 1. 파일을 읽어 버퍼에 저장합니다.
       setImgFile(e.target.files[0]); // 파일 상태 업데이트
     }
-    // e.preventDefault();
-    // axios({
-    //   method: 'post',
-    //   url: 'http://192.168.0.127:8000/makers',
-    //   bodyFormData,
-    //   headers: {
-    //     'Content-Type': 'multipart/form-data',
-    //     Authorization:
-    //       'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6M30.AAUvuGFBywoCVienbd_V2OHj4ZXWsOQxO9Zoi5JbVhQ',
-    //   },
-    // })
-    //   .then(function (response) {
-    //     console.log(response);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
   };
 
   // 이미지가 100kb를 초과할 시,  alert창을 보여주고 이미지 업로드를 null 처리
@@ -72,29 +52,6 @@ export default function Profile({ imgFile, setImgFile }) {
       alert('100KB 이하 파일만 첨부 가능합니다.');
     }
   }, [fileSize]);
-
-  // ====================================> btn통해서 사진 BE로 전달 중
-  // const test = e => {
-  //   e.preventDefault();
-  //   axios({
-  //     method: 'post',
-  //     url: 'http://192.168.0.127:8000/makers',
-  //     data: bodyFormDatas,
-  //     headers: {
-  //       'Content-Type': 'multipart/form-data',
-  //       Authorization:
-  //         'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6M30.AAUvuGFBywoCVienbd_V2OHj4ZXWsOQxO9Zoi5JbVhQ',
-  //     },
-  //   })
-  //     .then(function (response) {
-  //       console.log('성공', response);
-  //     })
-  //     .catch(function (error) {
-  //       console.log('실패', error);
-  //     });
-  //   console.log('파일테스트', bodyFormDatas);
-  //   console.log('이미지파일', imgFile);
-  // };
 
   // 사진 크기
   const units = ['bytes', 'KB'];
@@ -120,16 +77,24 @@ export default function Profile({ imgFile, setImgFile }) {
             추후 상품 업로드 시, 수정가능 합니다.
           </div>
         </div>
-
         <div className="image_category_wrap">
           <div className="preview_image">
             {fileName == null ? (
-              <img
-                className="camera_image"
-                src={Camera}
-                heigth="44"
-                width="44"
-              />
+              test.profile_image == null ? (
+                <img
+                  className="camera_image"
+                  src={Camera}
+                  heigth="44"
+                  width="44"
+                />
+              ) : (
+                <img
+                  className="selected_profile_preview"
+                  src={`http://49.50.174.75:8000${test.profile_image}`}
+                  heigth="165.2"
+                  width="157.3"
+                />
+              )
             ) : (
               <img
                 className="maker_profile_preview"
@@ -152,15 +117,47 @@ export default function Profile({ imgFile, setImgFile }) {
               id="keyword"
             />
             {fileName == null ? (
-              <button
-                type="button"
-                className="button3"
-                onClick={() => {
-                  buttonRef.current.click();
-                }}
-              >
-                이미지파일 업로드
-              </button>
+              test.profile_image == null ? (
+                <button
+                  type="button"
+                  className="button3"
+                  onClick={() => {
+                    buttonRef.current.click();
+                  }}
+                >
+                  이미지파일 업로드
+                </button>
+              ) : (
+                <>
+                  <button
+                    id="attatched_img_info_wrap"
+                    className="button1"
+                    type="button"
+                    onClick={() => {
+                      buttonRef.current.click();
+                    }}
+                  >
+                    <div className="attached_img_info">
+                      <div className="btn_left">
+                        <img className="maker_img" src={File} alt="file" />
+                        <div className="img_name">
+                          수정을 원하시면 클릭해 주세요
+                        </div>
+                      </div>
+                      <div className="btn_right">
+                        <img
+                          className="trash_img"
+                          src={Trash}
+                          alt="trash"
+                          onClick={() => {
+                            return setFileName(null);
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </button>
+                </>
+              )
             ) : (
               <>
                 <div
@@ -168,7 +165,11 @@ export default function Profile({ imgFile, setImgFile }) {
                     buttonRef.current.click();
                   }}
                 >
-                  <button id="attatched_img_info_wrap" className="button1">
+                  <button
+                    id="attatched_img_info_wrap"
+                    className="button1"
+                    type="button"
+                  >
                     <div className="attached_img_info">
                       <div className="btn_left">
                         <img className="maker_img" src={File} alt="file" />

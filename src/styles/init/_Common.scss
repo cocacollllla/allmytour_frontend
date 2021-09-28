@@ -8,11 +8,13 @@
   box-sizing: border-box;
   font-family: ‘SpoqaHanSansNeoRegular’, ‘sans-serif’;
 
+
   ::placeholder {
     color: $Grayscale-middle;
     letter-spacing: $ls_8;
   }
 }
+
 
 input {
   @include input_inner;
@@ -23,10 +25,10 @@ input {
     box-shadow: 0 0 0 1px $primary-primary;
   }
 
-  &:disabled {
-    background-color: $Grayscale-lighter;
-    cursor: default;
-    color: $Grayscale-middle;
+  &:disabled{
+  background-color: $Grayscale-lighter;
+  cursor: default;
+  color: $Grayscale-middle;
   }
 }
 
@@ -54,6 +56,7 @@ input[type='number'] {
 
   &:disabled {
     background-color: $button-disabled;
+    color: $system-white;
     cursor: default;
   }
 }
@@ -72,7 +75,6 @@ input[type='number'] {
   }
   }
 
-
   .button3{
     @include size (367px, 54px);
     background-color: $system-white;
@@ -85,7 +87,6 @@ input[type='number'] {
       cursor: default;
       }
   }
-
 
   .button4{
     @include size (488px, 54px);

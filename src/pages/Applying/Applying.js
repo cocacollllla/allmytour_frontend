@@ -3,13 +3,17 @@ import '../../styles/styles.scss';
 import ArrowBack from '../../assets/arrow_back.svg';
 import Question from '../../assets/question.svg';
 import Language from './Aside/Language.js';
-// import Certificate from './Aside/Certificate';
-// import IdCard from './Aside/IdCard';
+import Certificate from './Aside/Certificate';
+import IdCard from './Aside/IdCard';
 import Profile from './Aside/Profile';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+import { API } from '../../config';
+import Submission_Modal from './Aside/Submission_Modal';
+// import Delete_modal from './Aside/Delete_modal';
+import { useParams } from 'react-router-dom';
 
 const Applying = () => {
-  const [nameValue, setNameValue] = useState('');
   const [nickValue, setNickValue] = useState('');
   const [profileValue, setProfileValue] = useState('');
   const [igValue, setIgValue] = useState('');
@@ -19,10 +23,11 @@ const Applying = () => {
   const [optionSelected, setOptionSelected] = useState([]);
   const [imgFile, setImgFile] = useState(null);
   const [idFile, setIdFile] = useState(null);
+  const [userName, setUserName] = useState('');
+  const [test, setTest] = useState([]);
+  const [modal, setModal] = useState(false);
+  const [id, setId] = useState('');
 
-  const handleInputChange = e => {
-    setNameValue(e.target.value);
-  };
   const handleNickInputChange = e => {
     setNickValue(e.target.value);
   };
@@ -39,59 +44,82 @@ const Applying = () => {
     setYtValue(e.target.value);
   };
 
+  // const { id } = useParams();
+
   var bodyFormData = new FormData();
-  bodyFormData.append('name', nameValue);
   bodyFormData.append('nickname', nickValue);
   bodyFormData.append('description', profileValue);
-  bodyFormData.append('license', optionSelected);
-  bodyFormData.append('language', selected);
+  bodyFormData.append('license', optionSelected); //자격증
+  bodyFormData.append('language', selected); // 언어
+  bodyFormData.append('profile_image', imgFile); //프로필
   bodyFormData.append('profile_image', imgFile);
-  bodyFormData.append('instagram', `https://www.instagram.com/${igValue}`);
-  bodyFormData.append('facebook', `https://www.facebook.com/${fbValue}`);
-  bodyFormData.append('youtube', `https://www.youtube.com/${ytValue}`);
+  bodyFormData.append('id_image', idFile); //신분증
+  bodyFormData.append('instagram', igValue);
+  bodyFormData.append('facebook', fbValue);
+  bodyFormData.append('youtube', ytValue);
 
+  //  ===============================>  처음에 유저 토큰 받아오기
   useEffect(() => {
-    localStorage.setItem(
-      'Authorization',
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6M30.AAUvuGFBywoCVienbd_V2OHj4ZXWsOQxO9Zoi5JbVhQ'
-    );
+    axios
+      .get(`${API.USER_NAME}`, {
+        headers: {
+          Authorization: localStorage.getItem('token'),
+        },
+      })
+      .then(res => {
+        setUserName(res.data.result.name);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }, []);
+
+  //   ===============================> 임시 저장된 정보 보내기
+  const history = useHistory();
+  const goToMain = () => {
+    history.push(`/applying/${id}`);
+  };
 
   const handleValueChange = e => {
     e.preventDefault();
     axios({
       method: 'post',
-      url: 'http://192.168.0.127:8000/makers',
+      url: `${API.APPLYING}`,
       data: bodyFormData,
       headers: {
         'Content-Type': 'multipart/form-data',
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6M30.AAUvuGFBywoCVienbd_V2OHj4ZXWsOQxO9Zoi5JbVhQ',
+        Authorization: localStorage.getItem('token'),
       },
     })
       .then(function (response) {
-        console.log(response);
+        setId(response.data.maker_id.id);
+        console.log(response.data.maker_id.id);
       })
       .catch(function (error) {
         console.log(error);
       });
+    goToMain();
 
-    sessionStorage.setItem('name', nameValue);
     sessionStorage.setItem('nickname', nickValue);
     sessionStorage.setItem('description', profileValue);
+    sessionStorage.setItem('profile_image', imgFile);
     sessionStorage.setItem('instagram', igValue);
     sessionStorage.setItem('faecbook', fbValue);
     sessionStorage.setItem('youtube', ytValue);
     sessionStorage.setItem('language', selected);
     sessionStorage.setItem('license', optionSelected);
+    sessionStorage.setItem('id_image', idFile);
   };
 
   // =================================>  메이커스 지원서 제출 버튼
+  // const history = useHistory();
+  // const goToMain = () => {
+  //   history.push('/complete');
+  // };
 
-  const handleSubmitChange = e => {
+  const HandleSubmitChange = e => {
     e.preventDefault();
     if (
-      nameValue.length > 1 &&
       nickValue.length > 1 &&
       profileValue.length > 1 &&
       (igValue.length > 1 || fbValue.length > 1 || ytValue.length > 1) &&
@@ -101,12 +129,11 @@ const Applying = () => {
     ) {
       axios({
         method: 'post',
-        url: 'http://192.168.0.127:8000/makers',
+        url: `${API.APPLYING}`,
         data: bodyFormData,
         headers: {
           'Content-Type': 'multipart/form-data',
-          Authorization:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6M30.AAUvuGFBywoCVienbd_V2OHj4ZXWsOQxO9Zoi5JbVhQ',
+          Authorization: localStorage.getItem('token'),
         },
       })
         .then(function (response) {
@@ -115,25 +142,12 @@ const Applying = () => {
         .catch(function (error) {
           console.log(error);
         });
+      setModal(true);
+      // goToMain();
     } else {
-      alert('노노');
+      alert('필수사항을 모두 입력해주세요');
     }
   };
-
-  // 임시저장된 데이터 불러오기! 만약 저장된 값이랑 지금값이 다르면 지금 값 저장해주기
-  // useEffect(() => {
-  //   axios
-  //     .get('http://192.168.11.72:8000/makers')
-  //     .then(response => bodyFormData(response.data));
-  // }, []);
-
-  // 그런데 만약 만약 저장된 값이랑 지금값이 다르면 지금 값 저장해주기! (나는
-  //  오브젝트가 아니라  JSON으로 변경해줄 필요 없음!)
-  //   componentDidUpdate(prevProps, prevState) {   // 컴포넌트가 업데이트될 때마다 실행되는 API
-  //     if (JSON.stringify(prevState.contactData) != JSON.stringify(this.state.contactData)) {  // 이전 값과 지금 값이 다르면
-  //         localStorage.contactData = JSON.stringify(this.state.contactData);                  // 지금 값을 입력해 줌
-  //     }
-  // }
 
   return (
     <form method="post" enctype="multipart/form-data">
@@ -148,7 +162,8 @@ const Applying = () => {
                 heigth="44"
                 width="44"
               />
-              <div className="applying_makers">메이커스 지원하기</div>
+
+              <div className="applying_makers">메이커스 지원하기 </div>
             </div>
             <div className="applying_button_category">
               <label for="임시저장">
@@ -160,36 +175,29 @@ const Applying = () => {
                   onClick={handleValueChange}
                 />
               </label>
-              <form
-                method="post"
-                enctype="multipart/form-data"
-                return="submitCheck()"
-              >
-                <label for="메이커 지원서 제출">
-                  <input
-                    type="submit"
-                    id="hand_in_btn"
-                    className="button2"
-                    value="메이커 지원서 제출"
-                    onClick={handleSubmitChange}
-                  />
-                </label>
-              </form>
+              <label for="메이커스 지원서 제출">
+                <input
+                  type="submit"
+                  id="hand_in_btn"
+                  className="button2"
+                  value="메이커스 지원서 제출"
+                  onClick={HandleSubmitChange}
+                />
+              </label>
             </div>
           </div>
         </div>
-        <main className="contents">
+        <main className="contents" key="index">
           {/* 메이커 이름 */}
           <div className="maker_name_wrap">
             <div className="maker_name">
               메이커 이름<span className="ico">*</span>
             </div>
             <input
-              className={`maker_name_input
-                ${nameValue.length >= 1 ? 'maker_name_input_used' : ''}`}
+              className="maker_name_input"
               placeholder="메이커 이름을 입력해주세요"
-              value={nameValue}
-              onChange={handleInputChange}
+              value={userName}
+              disabled
             />
           </div>
           {/* 메이커 닉네임 */}
@@ -207,15 +215,18 @@ const Applying = () => {
           </div>
 
           {/* 프로필 이미지 */}
-          <Profile imgFile={imgFile} setImgFile={setImgFile} />
-
+          <Profile imgFile={imgFile} setImgFile={setImgFile} test={test} />
           <div className="maker_profile">
             <div className="introduction">
               메이커 소개<span className="ico">*</span>
             </div>
             <textarea
-              className={`career_textarea
-                ${profileValue.length >= 1 ? 'career_used' : ''}`}
+              className={`career_textarea_space
+                ${
+                  profileValue.length >= 1
+                    ? 'career_used_input'
+                    : 'career_textarea_space'
+                }`}
               placeholder="2~3문장으로 메이커님의 이력과 간단한 소개를 써주세요."
               value={profileValue}
               onChange={handleProfileChange}
@@ -259,10 +270,11 @@ const Applying = () => {
                 영역에 대한 전문성을 입증할 수 있는 서류를 등록해주세요.
               </div>
             </div>
-            {/* <Certificate
+            <Certificate
               optionSelected={optionSelected}
               setOptionSelected={setOptionSelected}
-            /> */}
+              test={test}
+            />
           </div>
 
           <div className="user_sns_wrap">
@@ -320,11 +332,15 @@ const Applying = () => {
           </div>
 
           {/* 사용 가능한 언어 */}
-          <Language selected={selected} setSelected={setSelected} />
+          <Language selected={selected} setSelected={setSelected} test={test} />
           {/* 신분증 */}
-          {/* <IdCard idFile={idFile} setIdFile={setIdFile} /> */}
+          <IdCard idFile={idFile} setIdFile={setIdFile} test={test} />
         </main>
+        ;
       </div>
+      {modal === true ? (
+        <Submission_Modal modal={modal} setModal={setModal} />
+      ) : null}
     </form>
   );
 };

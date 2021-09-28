@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import '../../../styles/page/_Language.scss';
 import Delete from '../../../assets/delete.svg';
 import { LANGUAGE_DATA } from './LANGUAGE_DATA';
-import axios from 'axios';
 
-export default function Language({ selected, setSelected }) {
+export default function Language({ test, selected, setSelected }) {
   const handleSelect = e => {
     const selectedArr = selected.concat(e.target.value);
     const set = new Set(selectedArr);
@@ -22,8 +21,6 @@ export default function Language({ selected, setSelected }) {
     languageList.forEach(item => {
       lanFormData.append('languageList[]', item);
     });
-    console.log('language확인 중', lanFormData);
-    // axios.post('주소', lanFormData);
   }, [selected]);
 
   return (
@@ -40,7 +37,7 @@ export default function Language({ selected, setSelected }) {
           value={selected}
           onChange={handleSelect}
         >
-          <option value="" disabled selected>
+          <option value="" selected>
             사용가능한 언어를 선택해주세요
           </option>
           {LANGUAGE_DATA.languageInfo.map((option, id) => {
@@ -55,36 +52,31 @@ export default function Language({ selected, setSelected }) {
           ;
         </select>
         <div className="chosen_language_wrap">
-          {selected.map((lan, idx) => (
-            <>
-              <div
-                className={`chosen_language_category ${
-                  lan === '기타언어' ? 'active_chosen_language_category' : ''
-                }`}
-                key={idx}
-              >
-                <div className="chosen_language">
-                  {lan}
-                  <div
-                    className="remove_lan_option"
-                    onClick={() => {
-                      handleRemove(lan);
-                    }}
-                  >
-                    <img className="delete_mark" src={Delete} alt="delete" />
+          {test.length < 1 ? (
+            selected.map((lan, idx) => (
+              <>
+                <div className="chosen_language_category" key={idx}>
+                  <div className="chosen_language">
+                    {lan}
+                    <div
+                      className="remove_lan_option"
+                      onClick={() => {
+                        handleRemove(lan);
+                      }}
+                    >
+                      <img className="delete_mark" src={Delete} alt="delete" />
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div>
-                {lan === '기타언어' ? (
-                  <input
-                    className="others"
-                    placeholder="기타언어를 입력해주세요"
-                  />
-                ) : null}
-              </div>
-            </>
-          ))}
+              </>
+            ))
+          ) : (
+            <div className="chosen_language_wrap">
+              {test.languages.map(el => (
+                <div className="chosen_language">{el.language}</div>
+              ))}
+            </div>
+          )}
         </div>
       </form>
     </div>

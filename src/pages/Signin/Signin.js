@@ -35,6 +35,7 @@ export const Signin = ({ history }) => {
       if (response.data.MESSAGE === 'SUCCESS') {
         alert('로그인 완료');
         history.push('/');
+        window.location.reload();
         if (isCheck) {
           localStorage.setItem('token', response.data.TOKEN);
         } else {
