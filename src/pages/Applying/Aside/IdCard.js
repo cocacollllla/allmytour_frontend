@@ -143,7 +143,7 @@ export default function IdCard({ test, idFile, setIdFile }) {
                           src={Trash}
                           alt="trash"
                           onClick={() => {
-                            buttonRef.current.click();
+                            setIdFile.name(null);
                           }}
                         />
                       </div>

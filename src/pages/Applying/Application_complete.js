@@ -1,12 +1,15 @@
 import { useHistory } from 'react-router-dom';
 import '../../styles/styles.scss';
 import React, { useEffect, useState, useRef } from 'react';
+import { useParams } from 'react-router-dom';
 
 const Application_complete = () => {
   const history = useHistory();
 
+  const { id } = useParams();
+
   const goToSubmission = e => {
-    history.push('/submission');
+    history.push(`/submission/${id}`);
   };
 
   return (

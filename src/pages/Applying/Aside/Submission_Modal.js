@@ -1,13 +1,13 @@
 import '../../../styles/page/_Submission_Modal.scss';
 import { useHistory } from 'react-router-dom';
-// import { API } from '../../config';
+import { useParams } from 'react-router-dom';
 
 export default function Modal({ modal, setModal }) {
   const history = useHistory();
   const goToMain = () => {
-    history.push('/complete');
+    history.push(`/complete/${id}`);
   };
-
+  const { id } = useParams();
   const HandleMoveChange = e => {
     goToMain();
   };

@@ -5,14 +5,17 @@ import Question from '../../assets/question.svg';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { API } from '../../config';
+import { useParams } from 'react-router-dom';
 
 const Submission = () => {
   const [userName, setUserName] = useState('');
   const [test, setTest] = useState([]);
 
+  const { id } = useParams();
+
   useEffect(() => {
     axios
-      .get(`${API.APPLYING}`, {
+      .get(`${API.APPLYING}/${id}`, {
         headers: {
           Authorization: localStorage.getItem('token'),
         },

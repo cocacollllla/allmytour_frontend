@@ -150,7 +150,7 @@ export default function Profile({ test, imgFile, setImgFile }) {
                           src={Trash}
                           alt="trash"
                           onClick={() => {
-                            buttonRef.current.click();
+                            return setFileName(null);
                           }}
                         />
                       </div>
@@ -177,17 +177,17 @@ export default function Profile({ test, imgFile, setImgFile }) {
                       </div>
                       <div className="btn_right">
                         <div className="img_size">{niceBytes(fileSize)}</div>
+                        <img
+                          className="trash_img"
+                          src={Trash}
+                          alt="trash"
+                          onClick={() => {
+                            return setFileName(null);
+                          }}
+                        />
                       </div>
                     </div>
                   </button>
-                  <img
-                    className="trash_img"
-                    src={Trash}
-                    alt="trash"
-                    onClick={() => {
-                      return setFileName(null);
-                    }}
-                  />
                 </div>
               </>
             )}

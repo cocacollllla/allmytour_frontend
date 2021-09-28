@@ -13,6 +13,7 @@ import Nav from './component/Nav';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
 import Submission from './pages/Applying/Submisson';
+import Temporary_save from './pages/TemporarySave/Temporary_save';
 
 class Routes extends React.Component {
   render() {
@@ -20,18 +21,14 @@ class Routes extends React.Component {
       <Router>
         <Nav />
         <Switch>
+          <PublicRoute exact path="/applying/:id" component={Temporary_save} />
           <PrivateRoute
             exact
-            path="/complete"
+            path="/complete/:id"
             component={Application_complete}
           />
-          <PrivateRoute exact path="/submission" component={Submission} />
+          <PrivateRoute exact path="/submission/:id" component={Submission} />
           <PrivateRoute exact path="/applying" component={Applying} />
-          <PrivateRoute
-            exact
-            path="/complete"
-            component={Application_complete}
-          />
           <PrivateRoute
             restricted={true}
             exact
