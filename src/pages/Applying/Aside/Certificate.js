@@ -43,7 +43,7 @@ export default function Language({ optionSelected, setOptionSelected }) {
         value={optionSelected}
         onChange={handleOptionSelect}
       >
-        <option value="" disabled selected>
+        <option value="" selected>
           증빙서류를 선택해주세요
         </option>
         {CERTIFICATE_DATA.certificateInfo.map((option, index) => {

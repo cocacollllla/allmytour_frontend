@@ -328,6 +328,8 @@
         }
         .chosen_language_wrap{
             display: flex;
+            margin-top: $vertical_icons;
+            margin-right: $horizontal_icons;
             .chosen_language{  
             display: flex;
             align-items: center;

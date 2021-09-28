@@ -10,6 +10,7 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { API } from '../../config';
 import Submission_Modal from './Aside/Submission_Modal';
+// import Delete_modal from './Aside/Delete_modal';
 import { useParams } from 'react-router-dom';
 
 const Applying = () => {
@@ -25,6 +26,7 @@ const Applying = () => {
   const [userName, setUserName] = useState('');
   const [test, setTest] = useState([]);
   const [modal, setModal] = useState(false);
+  const [id, setId] = useState('');
 
   const handleNickInputChange = e => {
     setNickValue(e.target.value);
@@ -42,7 +44,7 @@ const Applying = () => {
     setYtValue(e.target.value);
   };
 
-  const { id } = useParams();
+  // const { id } = useParams();
 
   var bodyFormData = new FormData();
   bodyFormData.append('nickname', nickValue);
@@ -90,7 +92,8 @@ const Applying = () => {
       },
     })
       .then(function (response) {
-        console.log(response);
+        setId(response.data.maker_id.id);
+        console.log(response.data.maker_id.id);
       })
       .catch(function (error) {
         console.log(error);
@@ -160,7 +163,7 @@ const Applying = () => {
                 width="44"
               />
 
-              <div className="applying_makers">메이커스 지원하기 wjdfd</div>
+              <div className="applying_makers">메이커스 지원하기 </div>
             </div>
             <div className="applying_button_category">
               <label for="임시저장">
@@ -172,12 +175,12 @@ const Applying = () => {
                   onClick={handleValueChange}
                 />
               </label>
-              <label for="메이커 지원서 제출">
+              <label for="메이커스 지원서 제출">
                 <input
                   type="submit"
                   id="hand_in_btn"
                   className="button2"
-                  value="메이커 지원서 제출"
+                  value="메이커스 지원서 제출"
                   onClick={HandleSubmitChange}
                 />
               </label>

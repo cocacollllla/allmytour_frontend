@@ -146,19 +146,10 @@ const Temporary_save = () => {
       selected !== [] &&
       optionSelected !== [] &&
       imgFile !== null
-      // test.nickname.length > 1 &&
-      // test.description.length > 1 &&
-      // (test.instagram.length > 1 ||
-      //   test.facebook.length > 1 ||
-      //   test.youtube.length > 1) &&
-      // test.languages !== [] &&
-      // test.license !== [] &&
-      // test.profile_image.length > 1 &&
-      // test.id_image.length > 1
     ) {
       axios({
         method: 'post',
-        url: `${API.APPLYING} /${id}`,
+        url: `${API.APPLYING}`,
         data: bodyFormData,
         headers: {
           'Content-Type': 'multipart/form-data',
@@ -207,12 +198,12 @@ const Temporary_save = () => {
                         onClick={handleValueChange}
                       />
                     </label>
-                    <label for="메이커 지원서 제출">
+                    <label for="메이커스 지원서 제출">
                       <input
                         type="submit"
                         id="hand_in_btn"
                         className="button2"
-                        value="메이커 지원서 제출"
+                        value="메이커스 지원서 제출"
                         onClick={HandleSubmitChange}
                       />
                     </label>

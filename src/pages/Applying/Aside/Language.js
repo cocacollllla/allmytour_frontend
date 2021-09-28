@@ -37,7 +37,7 @@ export default function Language({ test, selected, setSelected }) {
           value={selected}
           onChange={handleSelect}
         >
-          <option value="" disabled selected>
+          <option value="" selected>
             사용가능한 언어를 선택해주세요
           </option>
           {LANGUAGE_DATA.languageInfo.map((option, id) => {

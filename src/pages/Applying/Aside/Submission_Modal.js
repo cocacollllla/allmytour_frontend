@@ -19,11 +19,12 @@ export default function Modal({ modal, setModal }) {
   return (
     <div className="confirm_modal_bg">
       <div className="confirm_modal">
-        <p>
-          신청서를 제출하시겠습니까?
-          <br />
-          심사진행중에는 수정이 불가능 합니다
-        </p>
+        <div className="submission_des_wrap">
+          <p className="submission_alert_msg">신청서를 제출하시겠습니까? </p>
+          <p className="submission_alert_msg2">
+            심사진행중에는 수정이 불가능 합니다
+          </p>
+        </div>
         <div className="button_box">
           <button onClick={HandleRemoveChange}>취소</button>
           <button onClick={HandleMoveChange}>제출</button>

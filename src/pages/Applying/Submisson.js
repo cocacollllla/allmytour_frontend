@@ -28,42 +28,6 @@ const Submission = () => {
       });
   }, []);
 
-  // const handleNickInputChange = e => {
-  //   setNickValue(e.target.value);
-  // };
-  // const handleProfileChange = e => {
-  //   setProfileValue(e.target.value);
-  // };
-  // const handleIgInputChange = e => {
-  //   setIgValue(e.target.value);
-  // };
-  // const handleFbInputChange = e => {
-  //   setFbValue(e.target.value);
-  // };
-  // const handleYtInputChange = e => {
-  //   setYtValue(e.target.value);
-  // };
-
-  // var bodyFormData = new FormData();
-  // bodyFormData.append('nickname', nickValue);
-  // bodyFormData.append('description', profileValue);
-  // bodyFormData.append('license', optionSelected); //자격증
-  // bodyFormData.append('language', selected); // 언어
-  // bodyFormData.append('profile_image', imgFile); //신분증
-  // bodyFormData.append('id_image', idFile);
-  // bodyFormData.append('instagram', igValue);
-  // bodyFormData.append('facebook', fbValue);
-  // bodyFormData.append('youtube', ytValue);
-
-  // bodyFormData.get('nickname', nickValue);
-  // bodyFormData.get('description', profileValue);
-  // bodyFormData.get('license', optionSelected);
-  // bodyFormData.get('language', selected);
-  // bodyFormData.get('profile_image', imgFile);
-  // bodyFormData.get('instagram', `https://www.instagram.com/${igValue}`);
-  // bodyFormData.get('facebook', `https://www.facebook.com/${fbValue}`);
-  // bodyFormData.get('youtube', `https://www.youtube.com/${ytValue}`);
-
   //  ===============================>  처음에 유저 토큰 받아오기
   useEffect(() => {
     axios
@@ -108,12 +72,12 @@ const Submission = () => {
                         disabled
                       />
                     </label>
-                    <label for="메이커 지원서 제출">
+                    <label for="메이커스 지원서 제출">
                       <input
                         type="submit"
                         id="hand_in_btn"
                         className="button2"
-                        value="메이커 지원서 제출"
+                        value="메이커스 지원서 제출"
                         disabled
                       />
                     </label>
