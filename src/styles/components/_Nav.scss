@@ -5,24 +5,35 @@
 @import '../../styles/init/_Font.scss';
 @import '../../styles/init/_Measures.scss';
 
-.nav_wrap{
-    width: 1100px;
-    margin: 0 auto;
-    .nav_category{
-        display: flex;
-        margin-top: 39.5px;
-        .logo_wrap{
-            width: calc((100% - 12px)/2);
-
-        }
-        .user_profile_wrap{
-            width: calc((100% - 12px)/2);
-            .user_name{
-                display: flex;
-                justify-content:flex-end;
-                @include MediumP;
-                ;
-            }
-        }
+.nav_wrap {
+  width: 1100px;
+  margin: 0 auto;
+  .nav_category {
+    display: flex;
+    margin-top: 39.5px;
+    .logo_wrap {
+      width: calc((100% - 12px) / 2);
     }
+    .user_profile_wrap {
+      width: calc((100% - 12px) / 2);
+      .user_name {
+        display: flex;
+        justify-content: flex-end;
+        @include MediumP;
+
+        .applying_btn {
+          margin-right: 30px;
+        }
+
+        .signin_btn {
+          @include MediumP;
+          text-decoration: none;
+
+          &:visited {
+            color: $system-black;
+          }
+        }
+      }
+    }
+  }
 }

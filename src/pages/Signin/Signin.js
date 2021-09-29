@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router';
 import SignTitle from '../../component/SignTitle';
 import LoginLogo from '../../assets/logo_login.svg';
 import { ReactComponent as RadioBtn } from '../../assets/radio_none.svg';
 import Instance from '../../axios';
 import '../../styles/styles.scss';
 
-export const Signin = ({ history }) => {
+export const Signin = () => {
   const [isCheck, setIsCheck] = useState(false);
   const [signinForm, setSigninForm] = useState({
     email: '',
     password: '',
   });
+
+  const history = useHistory();
 
   const handleLoginStateCheck = () => {
     setIsCheck(!isCheck);
@@ -34,8 +37,9 @@ export const Signin = ({ history }) => {
     }).then(response => {
       if (response.data.MESSAGE === 'SUCCESS') {
         alert('로그인 완료');
-        history.push('/');
         window.location.reload();
+        history.push('/applying');
+
         if (isCheck) {
           localStorage.setItem('token', response.data.TOKEN);
         } else {

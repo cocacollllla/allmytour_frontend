@@ -5,15 +5,12 @@ import Dot from '../../../assets/dot.svg';
 import Plus from '../../../assets/plus.svg';
 import { CERTIFICATE_DATA } from './CERTIFICATE_DATA';
 import axios from 'axios';
-
-export default function Language({ optionSelected, setOptionSelected }) {
+export default function Language({ test, optionSelected, setOptionSelected }) {
   const buttonRef = useRef(null);
   const [fileName, setFileName] = useState(null);
   const [fileSize, setFileSize] = useState(null);
-
   var bodyFormData = new FormData();
-  bodyFormData.append('license_image’', optionSelected);
-
+  bodyFormData.append('license_image', optionSelected);
   const handleOptionSelect = e => {
     setOptionSelected(optionSelected.concat(e.target.value));
     const selectedArr = optionSelected.concat(e.target.value);
@@ -21,11 +18,9 @@ export default function Language({ optionSelected, setOptionSelected }) {
     const uniqueArr = [...set];
     setOptionSelected(uniqueArr);
   };
-
   const handleOptionRemove = options => {
     setOptionSelected(optionSelected.filter(info => info !== options));
   };
-
   useEffect(() => {
     const certificateList = [...optionSelected];
     const cerFormData = new FormData();
@@ -33,9 +28,8 @@ export default function Language({ optionSelected, setOptionSelected }) {
       cerFormData.append('certificateList[]', item);
     });
     console.log('lcertificate확인 중', cerFormData);
-    // axios.post('주소', lanFormData);
+    // axios.post(‘주소’, lanFormData);
   }, [optionSelected]);
-
   return (
     <div className="certificate_option_wrap">
       <select
@@ -57,8 +51,7 @@ export default function Language({ optionSelected, setOptionSelected }) {
         })}
         ;
       </select>
-
-      {optionSelected.length === 0 ? null : (
+      {optionSelected !== null ? (
         <div className="chosen_certificate_icons">
           {optionSelected.map((el, index) => (
             <>
@@ -82,8 +75,15 @@ export default function Language({ optionSelected, setOptionSelected }) {
             </>
           ))}
         </div>
-      )}
-
+      ) : test.len > 1 ? (
+        test.licenses.map((el, index) => (
+          <>
+            <div key={index}>
+              <div className="submitted_certificate">{el.license}</div>
+            </div>
+          </>
+        ))
+      ) : null}
       <div className="detail_info_wrap">
         <div className="img_detail_des_1">
           <img
@@ -142,16 +142,4 @@ export default function Language({ optionSelected, setOptionSelected }) {
       )}
     </div>
   );
-}
-
-{
-  /* <div className="submitted_certificate_icons">
-  {test.licenses.map((el, index) => (
-    <>
-      <div key={index}>
-        <div className="submitted_certificate">{el.license}</div>
-      </div>
-    </>
-  ))}
-</div>; */
 }
