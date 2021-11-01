@@ -1,11 +1,9 @@
 # Allmytour-backend
 - F.E<br>
-  [김다슬](https://github.com/cocacollllla)<br>
-  [황문실](https://github.com/LovelyMoon23)<br>
+  [김다슬](https://github.com/cocacollllla) / [황문실](https://github.com/LovelyMoon23)<br>
   <br>
 - B.E<br>
-  [한상웅](https://github.com/tkddnd82)<br>
-  [김훈태](https://github.com/kim-hoontae)<br> 
+  [한상웅](https://github.com/tkddnd82) / [김훈태](https://github.com/kim-hoontae)<br> 
   <br>
 
 ## 올마이투어란?
