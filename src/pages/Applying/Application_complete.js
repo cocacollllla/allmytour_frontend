@@ -15,12 +15,10 @@ const Application_complete = () => {
   return (
     <div className="applying_success_wrap">
       <div className="applying_sucess_category">
-        <header className="complete_header">
-          메이커스 지원이 완료 되었습니다.
-        </header>
+        <header className="complete_header">지원이 완료 되었습니다.</header>
         <div className="subtitle">
           영업일 기준 7일 이내에 지원서 검토 후<br /> 입력하신 이메일을 통해
-          메이커스 계약서가 전달될 예정입니다.
+          계약서가 전달될 예정입니다.
         </div>
         <main className="status_des_wrap">
           <div className="status_des">
@@ -47,13 +45,13 @@ const Application_complete = () => {
           <div className="complete_wrap">
             <div className="complete_icon">인증완료</div>
             <div className="complete_des">
-              심사가 완료되어 메이커로 인증된 상태입니다. <br />
+              심사가 완료되어 인증된 상태입니다. <br />
               메일을 통해 보내드린 계약서를 통해 계약을 진행해주세요.
             </div>
           </div>
         </main>
         <button id="staus_checking" className="button1">
-          메이커스 심사 상태 확인하기
+          심사 상태 확인하기
         </button>
         <button id="go_to_main" className="button1" onClick={goToSubmission}>
           제출한 서류 보기

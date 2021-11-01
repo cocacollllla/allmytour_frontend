@@ -72,7 +72,7 @@ export default function Profile({ test, imgFile, setImgFile }) {
             프로필 이미지<span className="ico">*</span>
           </div>
           <div className="image_desc">
-            메이커 본인 확인을 위해 창작자 개인이나 팀의 사진을 올려주세요.
+            본인 확인을 위해 창작자 개인이나 팀의 사진을 올려주세요.
             <br />
             추후 상품 업로드 시, 수정가능 합니다.
           </div>

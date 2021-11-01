@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import SignTitle from '../../component/SignTitle';
-import LoginLogo from '../../assets/logo_login.svg';
 import { ReactComponent as RadioBtn } from '../../assets/radio_none.svg';
 import Instance from '../../axios';
 import '../../styles/styles.scss';
@@ -62,7 +61,7 @@ export const Signin = () => {
     <div className="wrap">
       <SignTitle title="로그인" />
       <div className="signin_info_wrap">
-        <img className="login_logo" alt="로고" src={LoginLogo} />
+        <div className="login_logo">올마이투어 로고</div>
         <div className="input_box">
           <input
             type="text"

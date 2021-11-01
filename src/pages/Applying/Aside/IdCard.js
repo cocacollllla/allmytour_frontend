@@ -68,7 +68,7 @@ export default function IdCard({ test, idFile, setIdFile }) {
         <div className="idcard_category">
           <div className="idcard_title">신분증</div>
           <div className="idcard_desc">
-            메이커 본인 확인을 위해 대표 구성원 1인의 신분증 사본을 등록해주세요
+            본인 확인을 위해 대표 구성원 1인의 신분증 사본을 등록해주세요
           </div>
         </div>
         <div className="uploading_id_category">

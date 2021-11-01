@@ -60,7 +60,7 @@ const Submission = () => {
                       heigth="44"
                       width="44"
                     />
-                    <div className="applying_makers">메이커스 지원서 보기</div>
+                    <div className="applying_makers">지원서 보기</div>
                   </div>
                   <div className="applying_button_category">
                     <label for="임시저장">
@@ -72,12 +72,12 @@ const Submission = () => {
                         disabled
                       />
                     </label>
-                    <label for="메이커스 지원서 제출">
+                    <label for="지원서 제출">
                       <input
                         type="submit"
                         id="hand_in_btn"
                         className="button2"
-                        value="메이커스 지원서 제출"
+                        value="지원서 제출"
                         disabled
                       />
                     </label>
@@ -85,10 +85,10 @@ const Submission = () => {
                 </div>
               </div>
               <main className="contents" key="index">
-                {/* 메이커 이름 */}
+                {/* 이름 */}
                 <div className="maker_name_wrap">
                   <div className="maker_name">
-                    메이커 이름<span className="ico">*</span>
+                    이름<span className="ico">*</span>
                   </div>
                   <input
                     className="maker_name_input"
@@ -96,10 +96,10 @@ const Submission = () => {
                     disabled
                   />
                 </div>
-                {/* 메이커 닉네임 */}
+                {/* 닉네임 */}
                 <div className="maker_nickname_wrap">
                   <div className="maker_nickname">
-                    메이커 닉네임<span className="ico">*</span>
+                    닉네임<span className="ico">*</span>
                   </div>
                   <input
                     className="maker_nickname_input"
@@ -129,11 +129,11 @@ const Submission = () => {
                 {/* <Profile /> */}
                 <div className="maker_profile">
                   <div className="introduction">
-                    메이커 소개<span className="ico">*</span>
+                    소개<span className="ico">*</span>
                   </div>
                   <textarea
                     className="submitted_career_textarea"
-                    placeholder="2~3문장으로 메이커님의 이력과 간단한 소개를 써주세요."
+                    placeholder="2~3문장으로 이력과 간단한 소개를 써주세요."
                     value={test.description}
                     disabled
                   />

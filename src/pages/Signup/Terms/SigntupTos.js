@@ -80,7 +80,7 @@ export const SignupTos = ({ handleClickInfoView }) => {
   return (
     <div className="tos_contents">
       <div className="tos_checkbox">
-        <p>올마이투어 메이커스 서비스약관에 동의해주세요.</p>
+        <p>올마이투어 서비스약관에 동의해주세요.</p>
         <div className="tos_chx_all">
           <label htmlFor="checkAll">
             <RadioBtn

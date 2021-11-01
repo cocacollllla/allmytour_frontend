@@ -131,7 +131,7 @@ const Temporary_save = () => {
     sessionStorage.setItem('id_image', idFile);
   };
 
-  // =================================>  메이커스 지원서 제출 버튼
+  // =================================>  지원서 제출 버튼
   // const history = useHistory();
   // const goToMain = () => {
   //   history.push('/complete');
@@ -186,7 +186,7 @@ const Temporary_save = () => {
                       width="44"
                     />
 
-                    <div className="applying_makers">메이커스 지원하기</div>
+                    <div className="applying_makers">지원하기</div>
                   </div>
                   <div className="applying_button_category">
                     <label for="임시저장">
@@ -198,12 +198,12 @@ const Temporary_save = () => {
                         onClick={handleValueChange}
                       />
                     </label>
-                    <label for="메이커스 지원서 제출">
+                    <label for="지원서 제출">
                       <input
                         type="submit"
                         id="hand_in_btn"
                         className="button2"
-                        value="메이커스 지원서 제출"
+                        value="지원서 제출"
                         onClick={HandleSubmitChange}
                       />
                     </label>
@@ -211,22 +211,22 @@ const Temporary_save = () => {
                 </div>
               </div>
               <main className="contents" key="index">
-                {/* 메이커 이름 */}
+                {/* 이름 */}
                 <div className="maker_name_wrap">
                   <div className="maker_name">
-                    메이커 이름<span className="ico">*</span>
+                    이름<span className="ico">*</span>
                   </div>
                   <input
                     className="maker_name_input"
-                    placeholder="메이커 이름을 입력해주세요"
+                    placeholder="이름을 입력해주세요"
                     value={userName}
                     disabled
                   />
                 </div>
-                {/* 메이커 닉네임 */}
+                {/* 닉네임 */}
                 <div className="maker_nickname_wrap">
                   <div className="maker_nickname">
-                    메이커 닉네임<span className="ico">*</span>
+                    닉네임<span className="ico">*</span>
                   </div>
                   <input
                     className={`maker_nickname_input
@@ -235,7 +235,7 @@ const Temporary_save = () => {
                     ? 'maker_nickname_input_used'
                     : ''
                 }`}
-                    placeholder="메이커 닉네임을 입력해주세요"
+                    placeholder="닉네임을 입력해주세요"
                     value={`${
                       nickValue.length < 1 ? test.nickname : nickValue
                     }`}
@@ -251,7 +251,7 @@ const Temporary_save = () => {
                 />
                 <div className="maker_profile">
                   <div className="introduction">
-                    메이커 소개<span className="ico">*</span>
+                    소개<span className="ico">*</span>
                   </div>
                   <textarea
                     className={`career_textarea_space
@@ -260,7 +260,7 @@ const Temporary_save = () => {
                     ? 'career_used_input'
                     : 'career_textarea_space'
                 }`}
-                    placeholder="2~3문장으로 메이커님의 이력과 간단한 소개를 써주세요."
+                    placeholder="2~3문장으로 이력과 간단한 소개를 써주세요."
                     value={`${
                       profileValue.length < 1 ? test.description : profileValue
                     }`}

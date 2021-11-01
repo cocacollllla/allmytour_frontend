@@ -26,7 +26,7 @@ export const SignupDone = ({ history }) => {
             반가워요 ^&#41;^
           </div>
           <p>
-            메이커스에 지원하고 <br />
+            지원하고 <br />
             투어를 이끄는 가이드가 되어보세요
           </p>
         </div>
@@ -35,7 +35,7 @@ export const SignupDone = ({ history }) => {
           className="button1 tomakers"
           onClick={toApplying}
         >
-          로컬메이커스 지원하기
+          지원하기
         </button>
       </div>
     </div>
