@@ -6,6 +6,9 @@
   [한상웅](https://github.com/tkddnd82) / [김훈태](https://github.com/kim-hoontae)<br> 
   <br>
 
+## 시연영상
+- [Youtube](https://youtu.be/7eTN7uqssBc)
+
 ## 올마이투어란?
 - 올마이투어는 현재 코로나 이전에는 어딘가로 ‘떠나는 여행’이 주를 이루었다면, 코로나가 장기화되며  
   안전하게 ‘머무는 여행’이 라는 컨셉으로 스테이케이션 전문 플랫폼인 ‘올마이스테이’를 운영하고 있으며 
